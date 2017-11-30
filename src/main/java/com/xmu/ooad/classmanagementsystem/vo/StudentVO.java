@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import java.math.BigInteger;
 
 /**
+ *
  * @author status200
  * @date 2017/11/30
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PresentStudentVO {
-
+public class StudentVO {
     private BigInteger id;
     private String name;
 }

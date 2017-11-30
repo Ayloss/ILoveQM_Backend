@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  *
@@ -16,10 +17,11 @@ import java.math.BigInteger;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SchoolVO {
+public class GroupVO {
 
     private BigInteger id;
-    private String name;
-    private String province;
-    private String city;
+    private StudentVO leader;
+    private List<StudentVO> members;
+    private List<TopicVO> topics;
+    private String report;
 }

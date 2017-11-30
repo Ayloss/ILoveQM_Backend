@@ -2,8 +2,6 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.BindAccountDTO;
 import com.xmu.ooad.classmanagementsystem.dto.SignInDTO;
-import com.xmu.ooad.classmanagementsystem.dto.UserInfoDTO;
-import com.xmu.ooad.classmanagementsystem.vo.SchoolVO;
 import com.xmu.ooad.classmanagementsystem.vo.SignInVO;
 import com.xmu.ooad.classmanagementsystem.vo.UserInfoVO;
 import org.springframework.http.HttpStatus;
@@ -25,19 +23,16 @@ public class PersonInfoController {
      * 用户的类型需要使用jwt进行判断。
      *
      * @return
-     */
-    @GetMapping("/me")
+     */    @GetMapping("/me")
     public ResponseEntity<UserInfoVO> getMe() {
 
-        return new ResponseEntity<UserInfoVO>(
-                new UserInfoVO(
-                        new BigInteger("3486"),
-                        "teacher",
-                        "邱明",
-                        "24321432534",
-                        "/avatar/3486.png"
-                ),
-                HttpStatus.OK);
+        UserInfoVO vo = new UserInfoVO();
+        vo.setId(new BigInteger("3486"));
+        vo.setName("邱明");
+        vo.setType("teacher");
+        vo.setNumber("24321432534");
+        vo.setAvatar("/avatar/3486.png");
+        return new ResponseEntity<UserInfoVO>(vo, HttpStatus.OK);
     }
 
     /**

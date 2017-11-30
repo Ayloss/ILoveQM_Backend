@@ -1,22 +1,19 @@
-package com.xmu.ooad.classmanagementsystem.vo;
+package com.xmu.ooad.classmanagementsystem.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigInteger;
-
 /**
  *
  * @author status200
- * @date 2017/11/28
+ * @date 2017/11/30
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseListItemVO {
-
-    private BigInteger id;
+public class SchoolDTO {
     private String name;
-    private Integer numClass;
+    private String province;
+    private String city;
 }

@@ -1,0 +1,6 @@
+# idea配置文件
+*.iml
+.idea
+
+# 使用maven生成的包
+target

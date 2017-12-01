@@ -1,6 +1,7 @@
 package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.ClassDTO;
+import com.xmu.ooad.classmanagementsystem.dto.GpsDTO;
 import com.xmu.ooad.classmanagementsystem.vo.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -75,7 +76,23 @@ public class ClassController {
         vo.setNumPresent(2);
         vo.setPresent(presentStudents);
 
-        return new ResponseEntity<PresentVO>(vo, HttpStatus.OK);
+        return new ResponseEntity<>(vo, HttpStatus.OK);
+    }
+
+    /**
+     * 签到
+     *
+     * @param classId
+     * @param studentId
+     * @param dto 请求的gps数据
+     * @return
+     */
+    @PutMapping("/class/{classId}/attendance/{studentId}")
+    public ResponseEntity rollCall(@PathVariable("classId") BigInteger classId,
+                                   @PathVariable("studentId") BigInteger studentId,
+                                   @RequestBody GpsDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
 

@@ -1,4 +1,4 @@
-package com.xmu.ooad.classmanagementsystem.vo;
+package com.xmu.ooad.classmanagementsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -10,17 +10,15 @@ import java.math.BigInteger;
 /**
  *
  * @author status200
- * @date 2017/11/30
+ * @date 2017/12/1
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TopicVO {
+public class StudentDTO {
 
     private BigInteger id;
     private String name;
-    private String description;
-    private Integer groupLimit;
-    private Integer groupLeft;
+    private String number;
 }

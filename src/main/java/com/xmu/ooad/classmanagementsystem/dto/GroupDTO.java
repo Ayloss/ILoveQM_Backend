@@ -1,26 +1,27 @@
-package com.xmu.ooad.classmanagementsystem.vo;
+package com.xmu.ooad.classmanagementsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.xmu.ooad.classmanagementsystem.vo.StudentVO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  *
  * @author status200
- * @date 2017/11/30
+ * @date 2017/12/1
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TopicVO {
+public class GroupDTO {
 
     private BigInteger id;
-    private String name;
-    private String description;
-    private Integer groupLimit;
-    private Integer groupLeft;
+    private StudentDTO leader;
+    private List<StudentDTO> members;
+    private List<TopicDTO> topics;
 }

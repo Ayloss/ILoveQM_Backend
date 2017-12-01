@@ -30,7 +30,7 @@ public class CourseController {
         vos.add(vo);
         vo = new CourseVO();
         vo.setId(new BigInteger("2"));
-        vo.setName("J2EE");
+        vo.setName("OOAD");
         vos.add(vo);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);

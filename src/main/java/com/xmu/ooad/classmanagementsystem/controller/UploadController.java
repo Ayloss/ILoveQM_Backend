@@ -19,4 +19,6 @@ public class UploadController {
 
         return new ResponseEntity<>(new UrlVO("/avatar/3486.png"), HttpStatus.CREATED);
     }
+
+
 }

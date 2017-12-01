@@ -1,20 +1,22 @@
 package com.xmu.ooad.classmanagementsystem.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author status200
- * @date 2017/11/30
+ * @date 2017/12/1
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BindAccountDTO {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class TopicDTO {
 
-    private String number;
-    private String name;
-    private String school;
+    private BigInteger id;
 }

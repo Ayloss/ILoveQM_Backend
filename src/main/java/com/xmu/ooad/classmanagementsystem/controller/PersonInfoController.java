@@ -64,9 +64,9 @@ public class PersonInfoController {
      * 微信小程序/OAuth2登录
      */
     @GetMapping("/signin")
-    public ResponseEntity<SignInVO> signIn(@RequestParam("code") String code,
+    public ResponseEntity<SignInVO> signIn(@RequestParam(value = "code",required = false) String code,
                                            @RequestParam("state") String state,
-                                           @RequestParam("success_url") String successUrl) {
+                                           @RequestParam(value = "success_url",required = false) String successUrl) {
 
         SignInVO vo = new SignInVO();
         vo.setId(new BigInteger("3486"));

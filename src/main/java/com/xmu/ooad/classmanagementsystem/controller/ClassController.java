@@ -44,9 +44,9 @@ public class ClassController {
 
     @GetMapping("/class/{classId}/attendance")
     public ResponseEntity<PresentVO> getAttendance(@PathVariable("classId") BigInteger classId,
-                                                   @RequestParam("showPresent") Boolean showPresent,
-                                                   @RequestParam("showLate") Boolean showLate,
-                                                   @RequestParam("showAbsent") Boolean showAbsent) {
+                                                   @RequestParam(value = "showPresent",required = false) Boolean showPresent,
+                                                   @RequestParam(value = "showLate",required = false) Boolean showLate,
+                                                   @RequestParam(value = "showAbsent",required = false) Boolean showAbsent) {
 
         List<StudentVO> presentStudents = new ArrayList<>();
         StudentVO studentVO = new StudentVO();

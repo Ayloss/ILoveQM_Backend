@@ -49,8 +49,22 @@ public class CourseController {
     @GetMapping("/course/{courseId}/seminar")
     public ResponseEntity<List<SeminarVO>> getSeminar(@PathVariable("courseId") BigInteger courseId) {
         List<SeminarVO> list = new ArrayList<>();
-        list.add(new SeminarVO(new BigInteger("29"), "界面原型设计", "界面原型设计", "fixed", "2017-09-25", "2017-10-09"));
-        list.add(new SeminarVO(new BigInteger("32"), "概要设计", "模型层与数据库设计", "fixed", "2017-10-10", "2017-10-24"));
+        SeminarVO seminar = new SeminarVO();
+        seminar.setId(new BigInteger("29"));
+        seminar.setName("界面原型设计");
+        seminar.setDescription("界面原型设计");
+        seminar.setStartTime("2017-09-25");
+        seminar.setEndTime("2017-10-09");
+        list.add(seminar);
+
+        seminar = new SeminarVO();
+        seminar.setId(new BigInteger("32"));
+        seminar.setName("概要设计");
+        seminar.setDescription("模型层与数据库设计");
+        seminar.setStartTime("2017-10-10");
+        seminar.setEndTime("2017-10-24");
+        list.add(seminar);
+
 
         return new ResponseEntity<>(list, HttpStatus.OK);
     }

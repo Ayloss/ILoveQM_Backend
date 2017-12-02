@@ -20,6 +20,7 @@ import java.util.List;
 public class GroupVO {
 
     private BigInteger id;
+    private String name;
     private StudentVO leader;
     private List<StudentVO> members;
     private List<TopicVO> topics;

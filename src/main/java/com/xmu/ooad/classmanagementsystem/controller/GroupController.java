@@ -22,7 +22,8 @@ public class GroupController {
 
     @GetMapping("/group/{groupId}")
     public ResponseEntity<GroupVO> getGroup(@PathVariable("groupId") BigInteger groupId,
-                                            @RequestParam("embedTopics") Boolean embedTopics) {
+                                            @RequestParam(value = "embedTopics",required = false) Boolean embedTopics,
+                                            @RequestParam(value = "embedGrade",required = false) Boolean embedGrade) {
         GroupVO vo = new GroupVO();
 
         if(embedTopics) {

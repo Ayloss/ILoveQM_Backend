@@ -41,20 +41,17 @@ public class SeminarController {
      */
     @GetMapping("/seminar/{seminarId}/group")
     public ResponseEntity<List<GroupVO>> getGroup(@PathVariable("seminarId") BigInteger seminarId,
-                                                  @RequestParam("gradeable") Boolean gradeable,
-                                                  @RequestParam("classId") Integer classId) {
+                                                  @RequestParam(value = "gradeable",required = false) Boolean gradeable,
+                                                  @RequestParam(value = "classId",required = false) Integer classId) {
         List<GroupVO> vos = new ArrayList<>();
 
-        if (gradeable) {
+        GroupVO group = new GroupVO();
+        group.setId(new BigInteger("27"));
+        vos.add(group);
 
-            GroupVO group = new GroupVO();
-            group.setId(new BigInteger("27"));
-            vos.add(group);
-
-            group = new GroupVO();
-            group.setId(new BigInteger("29"));
-            vos.add(group);
-        }
+        group = new GroupVO();
+        group.setId(new BigInteger("29"));
+        vos.add(group);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);
     }
@@ -87,7 +84,8 @@ public class SeminarController {
         TopicVO topic = new TopicVO();
         topic.setId(new BigInteger("257"));
         topic.setName("领域模型与模块");
-
+        vo.setTopics(topics);
+        
         return new ResponseEntity<>(vo, HttpStatus.OK);
     }
 

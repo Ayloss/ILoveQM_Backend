@@ -20,7 +20,7 @@ import java.util.List;
 public class SchoolController {
 
     @GetMapping("/school")
-    public ResponseEntity<List<SchoolVO>> getSchools(@RequestParam("city") String city) {
+    public ResponseEntity<List<SchoolVO>> getSchools(@RequestParam(value = "city",required = false) String city) {
 
         List<SchoolVO> list = new ArrayList<>();
         SchoolVO vo = new SchoolVO();

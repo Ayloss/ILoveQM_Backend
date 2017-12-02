@@ -35,23 +35,17 @@ public class SeminarController {
      * 获得分组信息
      *
      * @param seminarId
-     * @param includedStudentId 该讨论课中的某个学生id
      * @param gradeable         是否获取打分状态
      * @return includedStudentId存在, 则返回该学生所在的小组的Id.
      * gradeable为true,,则返回学生可打分的组的列表.
      */
     @GetMapping("/seminar/{seminarId}/group")
     public ResponseEntity<List<GroupVO>> getGroup(@PathVariable("seminarId") BigInteger seminarId,
-                                                  @RequestParam("include") BigInteger includedStudentId,
                                                   @RequestParam("gradeable") Boolean gradeable,
                                                   @RequestParam("classId") Integer classId) {
         List<GroupVO> vos = new ArrayList<>();
 
-        if (includedStudentId != null) {
-            GroupVO group = new GroupVO();
-            group.setId(new BigInteger("28"));
-            vos.add(group);
-        } else if (gradeable) {
+        if (gradeable) {
 
             GroupVO group = new GroupVO();
             group.setId(new BigInteger("27"));
@@ -65,6 +59,37 @@ public class SeminarController {
         return new ResponseEntity<>(vos, HttpStatus.OK);
     }
 
+    @GetMapping("/seminar/{seminarId}/group/my")
+    public ResponseEntity<GroupVO> getMyGroup(@PathVariable("seminarId") String seminarId) {
+
+        GroupVO vo = new GroupVO();
+        vo.setId(new BigInteger("28"));
+
+        StudentVO leader = new StudentVO();
+        leader.setId(new BigInteger("2757"));
+        leader.setName("张三");
+        vo.setLeader(leader);
+
+        List<StudentVO> members = new ArrayList<>();
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("2756"));
+        student.setName("李四");
+        members.add(student);
+
+        student = new StudentVO();
+        student.setId(new BigInteger("2777"));
+        student.setName("王五");
+        members.add(student);
+
+        vo.setMembers(members);
+
+        List<TopicVO> topics = new ArrayList<>();
+        TopicVO topic = new TopicVO();
+        topic.setId(new BigInteger("257"));
+        topic.setName("领域模型与模块");
+
+        return new ResponseEntity<>(vo, HttpStatus.OK);
+    }
 
     @GetMapping("/seminar/{seminarId}/topic")
     public ResponseEntity<List<TopicVO>> getTopics(@PathVariable("seminarId") BigInteger seminarId) {

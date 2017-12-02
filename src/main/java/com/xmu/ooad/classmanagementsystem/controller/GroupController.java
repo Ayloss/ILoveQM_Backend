@@ -70,9 +70,7 @@ public class GroupController {
 
 
     @GetMapping("/group/{groupId}/grade")
-    public ResponseEntity<GroupGradeVO> getGroupGrade(
-            @PathVariable("groupId") BigInteger groupId,
-            @RequestParam("embedTopics") Boolean embedTopics) {
+    public ResponseEntity<GroupGradeVO> getGroupGrade(@PathVariable("groupId") BigInteger groupId) {
 
         GroupGradeVO gradeVO = new GroupGradeVO();
         List<PresentationGradeVO> presentationGradeVOS = new ArrayList<>();
@@ -109,7 +107,7 @@ public class GroupController {
      * @param dto
      * @return
      */
-    @PutMapping("/group/{groupId}/grade/{studentId}")
+    @PutMapping("/group/{groupId}/grade/presentation/{studentId}")
     public ResponseEntity grade(@PathVariable("groupId") BigInteger groupId,
                                 @PathVariable("studentId") BigInteger studentId,
                                 @RequestBody GroupGradeDTO dto) {

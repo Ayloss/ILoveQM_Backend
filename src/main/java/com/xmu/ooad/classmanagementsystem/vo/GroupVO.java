@@ -25,4 +25,5 @@ public class GroupVO {
     private List<StudentVO> members;
     private List<TopicVO> topics;
     private String report;
+    private SeminarGradeVO grade;
 }

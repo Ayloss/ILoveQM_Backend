@@ -69,9 +69,9 @@ public class GroupController {
 
         vo.setReport("");
 
-        
+
         if(embedGrade != null && embedGrade) {
-            SeminarGradeVO gradeVO = new SeminarGradeVO();
+            SeminarGradeVO grade = new SeminarGradeVO();
             List<PresentationGradeVO> presentationGradeVOS = new ArrayList<>();
 
             PresentationGradeVO presentationGradeVO = new PresentationGradeVO();
@@ -84,9 +84,11 @@ public class GroupController {
             presentationGradeVO.setGrade(5);
             presentationGradeVOS.add(presentationGradeVO);
 
-            gradeVO.setPresentationGrade(presentationGradeVOS);
-            gradeVO.setReportGrade(3);
-            gradeVO.setGrade(4);
+            grade.setPresentationGrade(presentationGradeVOS);
+            grade.setReportGrade(3);
+            grade.setGrade(4);
+
+            vo.setGrade(grade);
         }
 
         return new ResponseEntity<>(vo, HttpStatus.OK);

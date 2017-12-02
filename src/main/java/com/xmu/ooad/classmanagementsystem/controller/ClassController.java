@@ -2,14 +2,16 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.ClassDTO;
 import com.xmu.ooad.classmanagementsystem.dto.GpsDTO;
-import com.xmu.ooad.classmanagementsystem.vo.*;
+import com.xmu.ooad.classmanagementsystem.vo.ClassProportionsVO;
+import com.xmu.ooad.classmanagementsystem.vo.ClassVO;
+import com.xmu.ooad.classmanagementsystem.vo.PresentVO;
+import com.xmu.ooad.classmanagementsystem.vo.StudentVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,20 +28,7 @@ public class ClassController {
         vo.setId(new BigInteger("23"));
         vo.setName("周三1-2节");
         vo.setNumStudent(120);
-        List<ClassTimeVO> classTimeVOS = new ArrayList<>();
-        ClassTimeVO classTimeVO = new ClassTimeVO();
-        classTimeVO.setWeek(1);
-        classTimeVO.setDay(1);
-        classTimeVO.setLessons(Arrays.asList(1,2));
-        classTimeVO.setSite("海韵201");
-        classTimeVOS.add(classTimeVO);
-        classTimeVO = new ClassTimeVO();
-        classTimeVO.setWeek(0);
-        classTimeVO.setDay(3);
-        classTimeVO.setLessons(Arrays.asList(3,4));
-        classTimeVO.setSite("公寓405");
-        classTimeVOS.add(classTimeVO);
-        vo.setCalling(true);
+        vo.setCalling(-1);
         vo.setRoster("/roster/周三12班.xlsx");
         ClassProportionsVO classProportionsVO = new ClassProportionsVO();
         classProportionsVO.setA(20);
@@ -49,7 +38,7 @@ public class ClassController {
         classProportionsVO.setPresentation(50);
         vo.setProportions(classProportionsVO);
 
-        return new ResponseEntity<ClassVO>(vo, HttpStatus.OK);
+        return new ResponseEntity<>(vo, HttpStatus.OK);
     }
     @PutMapping("/class/{classId}")
     public ResponseEntity updateClass(@PathVariable("classId") BigInteger classId,@RequestBody ClassDTO dto) {

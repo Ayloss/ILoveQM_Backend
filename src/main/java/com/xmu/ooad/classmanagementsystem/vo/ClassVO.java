@@ -22,8 +22,9 @@ public class ClassVO {
     private BigInteger id;
     private String name;
     private Integer numStudent;
-    private List<ClassTimeVO> time;
-    private Boolean calling;
+    private String time;
+    private String site;
+    private Integer calling;
     private String roster;
     private ClassProportionsVO proportions;
 }

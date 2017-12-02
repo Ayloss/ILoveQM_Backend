@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by status200 on 2017/11/30.
+ *
+ * @author status200
+ * @date 2017/11/30
  */
 @Data
 @NoArgsConstructor

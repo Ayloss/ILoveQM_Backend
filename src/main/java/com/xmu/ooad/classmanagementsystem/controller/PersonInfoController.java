@@ -2,6 +2,7 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.SignInDTO;
 import com.xmu.ooad.classmanagementsystem.dto.UserInfoDTO;
+import com.xmu.ooad.classmanagementsystem.vo.SchoolVO;
 import com.xmu.ooad.classmanagementsystem.vo.SignInVO;
 import com.xmu.ooad.classmanagementsystem.vo.UserInfoVO;
 import org.springframework.http.HttpStatus;
@@ -29,11 +30,22 @@ public class PersonInfoController {
 
         UserInfoVO vo = new UserInfoVO();
         vo.setId(new BigInteger("3486"));
-        vo.setName("邱明");
         vo.setType("teacher");
+        vo.setName("邱明");
         vo.setNumber("24321432534");
+        vo.setPhone("18911114514");
+        vo.setEmail("23320152202333@stu.xmu.edu.cn");
+        vo.setGender("male");
+
+        SchoolVO school = new SchoolVO();
+        school.setId(new BigInteger("32"));
+        school.setName("厦门大学");
+
+        vo.setSchool(school);
+        vo.setTitle("教授");
         vo.setAvatar("/avatar/3486.png");
-        return new ResponseEntity<UserInfoVO>(vo, HttpStatus.OK);
+
+        return new ResponseEntity<>(vo, HttpStatus.OK);
     }
 
     /**

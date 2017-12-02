@@ -17,4 +17,5 @@ import java.math.BigInteger;
 public class StudentVO {
     private BigInteger id;
     private String name;
+    private String number;
 }

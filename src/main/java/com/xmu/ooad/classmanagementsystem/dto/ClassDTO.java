@@ -17,5 +17,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ClassDTO {
 
-    private Boolean calling;
+    private Integer calling;
 }

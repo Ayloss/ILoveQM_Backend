@@ -21,4 +21,7 @@ public class SeminarVO {
     private String groupingMethod;
     private String startTime;
     private String endTime;
+    private String site;
+    private String teacherName;
+    private String teacherEmail;
 }

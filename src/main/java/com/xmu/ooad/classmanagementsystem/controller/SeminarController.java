@@ -82,5 +82,18 @@ public class SeminarController {
         return new ResponseEntity<>(vos, HttpStatus.OK);
     }
 
+    @GetMapping("/seminar/{seminarId}/detail")
+    public ResponseEntity<SeminarVO> getSeminarDetail(@PathVariable("seminarId") BigInteger seminarId) {
 
+        SeminarVO vo = new SeminarVO();
+        vo.setId(new BigInteger("32"));
+        vo.setName("概要设计");
+        vo.setStartTime("2017-10-10");
+        vo.setEndTime("2017-10-24");
+        vo.setSite("海韵201");
+        vo.setTeacherName("邱明");
+        vo.setTeacherEmail("mingqiu@xmu.edu.cn");
+
+        return new ResponseEntity<>(vo, HttpStatus.OK);
+    }
 }

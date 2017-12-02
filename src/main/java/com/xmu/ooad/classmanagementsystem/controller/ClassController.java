@@ -2,10 +2,7 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.ClassDTO;
 import com.xmu.ooad.classmanagementsystem.dto.GpsDTO;
-import com.xmu.ooad.classmanagementsystem.vo.ClassProportionsVO;
-import com.xmu.ooad.classmanagementsystem.vo.ClassVO;
-import com.xmu.ooad.classmanagementsystem.vo.PresentVO;
-import com.xmu.ooad.classmanagementsystem.vo.StudentVO;
+import com.xmu.ooad.classmanagementsystem.vo.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -82,6 +79,34 @@ public class ClassController {
                                    @RequestBody GpsDTO dto) {
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/class/{classId}/classgroup")
+    public ResponseEntity<GroupVO> getClassGroup(@PathVariable("classId") BigInteger classId) {
+
+        GroupVO vo = new GroupVO();
+        StudentVO leader = new StudentVO();
+        leader.setId(new BigInteger("2757"));
+        leader.setName("张三");
+        leader.setNumber("23320152202333");
+        vo.setLeader(leader);
+
+        List<StudentVO> members = new ArrayList<>();
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("2756"));
+        student.setName("李四");
+        student.setNumber("23320152202443");
+        members.add(student);
+
+        student = new StudentVO();
+        student.setId(new BigInteger("2777"));
+        student.setName("王五");
+        student.setNumber("23320152202433");
+        members.add(student);
+
+        vo.setMembers(members);
+
+        return new ResponseEntity<GroupVO>(vo, HttpStatus.OK);
     }
 }
 

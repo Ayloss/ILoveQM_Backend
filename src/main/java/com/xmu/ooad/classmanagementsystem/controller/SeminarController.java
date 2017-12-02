@@ -85,7 +85,7 @@ public class SeminarController {
         topic.setId(new BigInteger("257"));
         topic.setName("领域模型与模块");
         vo.setTopics(topics);
-        
+
         return new ResponseEntity<>(vo, HttpStatus.OK);
     }
 

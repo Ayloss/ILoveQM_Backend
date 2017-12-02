@@ -20,34 +20,43 @@ import java.util.List;
 public class GroupController {
 
 
+    /**
+     * 获取小组的信息。
+     * 小组选择的话题和小组的得分可以通过 GET /group/{groupId}?embedTopics=true&embedGrade=true获取.
+     *
+     * @param groupId
+     * @param embedTopics
+     * @param embedGrade
+     * @return
+     */
     @GetMapping("/group/{groupId}")
     public ResponseEntity<GroupVO> getGroup(@PathVariable("groupId") BigInteger groupId,
                                             @RequestParam(value = "embedTopics",required = false) Boolean embedTopics,
                                             @RequestParam(value = "embedGrade",required = false) Boolean embedGrade) {
         GroupVO vo = new GroupVO();
 
-        if(embedTopics) {
-            vo.setId(new BigInteger("28"));
+        vo.setId(new BigInteger("28"));
 
-            StudentVO leader = new StudentVO();
-            leader.setId(new BigInteger("8888"));
-            leader.setName("张三");
-            vo.setLeader(leader);
+        StudentVO leader = new StudentVO();
+        leader.setId(new BigInteger("8888"));
+        leader.setName("张三");
+        vo.setLeader(leader);
 
-            List<StudentVO> members = new ArrayList<>();
+        List<StudentVO> members = new ArrayList<>();
 
-            StudentVO student = new StudentVO();
-            student.setId(new BigInteger("5324"));
-            student.setName("李四");
-            members.add(student);
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("5324"));
+        student.setName("李四");
+        members.add(student);
 
-            student = new StudentVO();
-            student.setId(new BigInteger("5678"));
-            student.setName("王五");
-            members.add(student);
+        student = new StudentVO();
+        student.setId(new BigInteger("5678"));
+        student.setName("王五");
+        members.add(student);
 
-            vo.setMembers(members);
+        vo.setMembers(members);
 
+        if(embedTopics != null && embedTopics) {
             List<TopicVO> topics = new ArrayList<>();
 
             TopicVO topic = new TopicVO();
@@ -56,7 +65,28 @@ public class GroupController {
             topics.add(topic);
 
             vo.setTopics(topics);
-            vo.setReport("");
+        }
+
+        vo.setReport("");
+
+        
+        if(embedGrade != null && embedGrade) {
+            SeminarGradeVO gradeVO = new SeminarGradeVO();
+            List<PresentationGradeVO> presentationGradeVOS = new ArrayList<>();
+
+            PresentationGradeVO presentationGradeVO = new PresentationGradeVO();
+            presentationGradeVO.setTopicId(new BigInteger("257"));
+            presentationGradeVO.setGrade(4);
+            presentationGradeVOS.add(presentationGradeVO);
+
+            presentationGradeVO = new PresentationGradeVO();
+            presentationGradeVO.setTopicId(new BigInteger("258"));
+            presentationGradeVO.setGrade(5);
+            presentationGradeVOS.add(presentationGradeVO);
+
+            gradeVO.setPresentationGrade(presentationGradeVOS);
+            gradeVO.setReportGrade(3);
+            gradeVO.setGrade(4);
         }
 
         return new ResponseEntity<>(vo, HttpStatus.OK);
@@ -71,9 +101,9 @@ public class GroupController {
 
 
     @GetMapping("/group/{groupId}/grade")
-    public ResponseEntity<GroupGradeVO> getGroupGrade(@PathVariable("groupId") BigInteger groupId) {
+    public ResponseEntity<SeminarGradeVO> getGroupGrade(@PathVariable("groupId") BigInteger groupId) {
 
-        GroupGradeVO gradeVO = new GroupGradeVO();
+        SeminarGradeVO gradeVO = new SeminarGradeVO();
         List<PresentationGradeVO> presentationGradeVOS = new ArrayList<>();
 
         PresentationGradeVO presentationGradeVO = new PresentationGradeVO();

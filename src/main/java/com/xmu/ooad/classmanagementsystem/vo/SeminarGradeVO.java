@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GroupGradeVO {
+public class SeminarGradeVO {
 
     private List<PresentationGradeVO> presentationGrade;
     private Integer reportGrade;

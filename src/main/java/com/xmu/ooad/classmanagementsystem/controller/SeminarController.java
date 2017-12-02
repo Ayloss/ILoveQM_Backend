@@ -36,21 +36,22 @@ public class SeminarController {
      *
      * @param seminarId
      * @param includedStudentId 该讨论课中的某个学生id
-     * @param gradeable 是否获取打分状态
+     * @param gradeable         是否获取打分状态
      * @return includedStudentId存在, 则返回该学生所在的小组的Id.
-     *          gradeable为true,,则返回学生可打分的组的列表.
+     * gradeable为true,,则返回学生可打分的组的列表.
      */
     @GetMapping("/seminar/{seminarId}/group")
     public ResponseEntity<List<GroupVO>> getGroup(@PathVariable("seminarId") BigInteger seminarId,
-                                            @RequestParam("include") BigInteger includedStudentId,
-                                            @RequestParam("gradeable") Boolean gradeable) {
+                                                  @RequestParam("include") BigInteger includedStudentId,
+                                                  @RequestParam("gradeable") Boolean gradeable,
+                                                  @RequestParam("classId") Integer classId) {
         List<GroupVO> vos = new ArrayList<>();
 
         if (includedStudentId != null) {
             GroupVO group = new GroupVO();
             group.setId(new BigInteger("28"));
             vos.add(group);
-        } else if(gradeable) {
+        } else if (gradeable) {
 
             GroupVO group = new GroupVO();
             group.setId(new BigInteger("27"));

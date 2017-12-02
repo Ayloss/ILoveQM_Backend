@@ -61,21 +61,20 @@ public class PersonInfoController {
     }
 
     /**
-     * 登录
-     *
-     * @param dto
-     * @return
+     * 微信小程序/OAuth2登录
      */
-    @PostMapping("/signin")
-    public ResponseEntity<SignInVO> signIn(@RequestBody SignInDTO dto) {
+    @GetMapping("/signin")
+    public ResponseEntity<SignInVO> signIn(@RequestParam("code") String code,
+                                           @RequestParam("state") String state,
+                                           @RequestParam("success_url") String successUrl) {
 
-        return new ResponseEntity<SignInVO>(
-                new SignInVO(
-                        new BigInteger("3486"),
-                        "student",
-                        "张三",
-                        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo="
-                ),
-                HttpStatus.OK);
+        SignInVO vo = new SignInVO();
+        vo.setId(new BigInteger("3486"));
+        vo.setType("student");
+        vo.setName("张三");
+        vo.setJwt("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=");
+
+
+        return new ResponseEntity<>(vo, HttpStatus.OK);
     }
 }

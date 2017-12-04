@@ -36,7 +36,7 @@ public class SeminarController {
      *
      * @param seminarId
      * @param gradeable         是否获取打分状态
-     * @return includedStudentId存在, 则返回该学生所在的小组的Id.
+     * @return
      * gradeable为true,,则返回学生可打分的组的列表.
      */
     @GetMapping("/seminar/{seminarId}/group")

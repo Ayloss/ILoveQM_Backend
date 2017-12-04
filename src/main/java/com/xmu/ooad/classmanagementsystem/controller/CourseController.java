@@ -53,6 +53,7 @@ public class CourseController {
         seminar.setId(new BigInteger("29"));
         seminar.setName("界面原型设计");
         seminar.setDescription("界面原型设计");
+        seminar.setGroupingMethod("fixed");
         seminar.setStartTime("2017-09-25");
         seminar.setEndTime("2017-10-09");
         list.add(seminar);
@@ -60,6 +61,7 @@ public class CourseController {
         seminar = new SeminarVO();
         seminar.setId(new BigInteger("32"));
         seminar.setName("概要设计");
+        seminar.setGroupingMethod("fixed");
         seminar.setDescription("模型层与数据库设计");
         seminar.setStartTime("2017-10-10");
         seminar.setEndTime("2017-10-24");

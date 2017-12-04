@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -44,5 +45,17 @@ public class SchoolController {
     public ResponseEntity<IdVO> createSchool(@RequestBody SchoolDTO dto) {
 
         return new ResponseEntity<IdVO>(new IdVO(new BigInteger("38")), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/school/province")
+    public ResponseEntity<List<String>> getProvinces() {
+
+        return new ResponseEntity<List<String>>(Arrays.asList("北京", "天津", "河北省", "澳门特别行政区"),HttpStatus.OK);
+    }
+
+    @GetMapping("/school/city")
+    public ResponseEntity<List<String>> getCitysOfProvince(@RequestParam("province") String province) {
+
+        return new ResponseEntity<List<String>>(Arrays.asList("北京", "天津", "河北省", "澳门特别行政区"),HttpStatus.OK);
     }
 }

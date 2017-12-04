@@ -1,5 +1,6 @@
 package com.xmu.ooad.classmanagementsystem.controller;
 
+import com.xmu.ooad.classmanagementsystem.dto.GpsDTO;
 import com.xmu.ooad.classmanagementsystem.vo.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,23 +36,23 @@ public class SeminarController {
      * 获得分组信息
      *
      * @param seminarId
-     * @param gradeable         是否获取打分状态
-     * @return
-     * gradeable为true,,则返回学生可打分的组的列表.
+     * @param gradeable 是否获取打分状态
+     * @return gradeable为true, , 则返回学生可打分的组的列表.
      */
     @GetMapping("/seminar/{seminarId}/group")
     public ResponseEntity<List<GroupVO>> getGroup(@PathVariable("seminarId") BigInteger seminarId,
-                                                  @RequestParam(value = "gradeable",required = false) Boolean gradeable,
-                                                  @RequestParam(value = "classId",required = false) Integer classId) {
+                                                  @RequestParam(value = "gradeable", required = false) Boolean gradeable,
+                                                  @RequestParam(value = "classId", required = false) Integer classId) {
         List<GroupVO> vos = new ArrayList<>();
 
         GroupVO group = new GroupVO();
         group.setId(new BigInteger("27"));
-
+        group.setName("A1");
         vos.add(group);
 
         group = new GroupVO();
         group.setId(new BigInteger("29"));
+        group.setName("A2");
         vos.add(group);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);
@@ -128,5 +129,76 @@ public class SeminarController {
         vo.setTeacherEmail("mingqiu@xmu.edu.cn");
 
         return new ResponseEntity<>(vo, HttpStatus.OK);
+    }
+
+    @GetMapping("/seminar/{seminarId}/class/{classId}/attendance")
+    public ResponseEntity<SeminarStatusVO> getSeminarAttendanceStatusVO(@PathVariable("seminarId") BigInteger seminarId,
+                                                                        @PathVariable("classId") BigInteger classId) {
+
+        SeminarStatusVO vo = new SeminarStatusVO();
+        vo.setNumPresent(40);
+        vo.setNumStudent(60);
+        vo.setGroup("grouping");
+        vo.setStatus("calling");
+
+        return new ResponseEntity<SeminarStatusVO>(vo, HttpStatus.OK);
+    }
+
+    @GetMapping("/seminar/{seminarId}/class/{classId}/attendance/present")
+    public ResponseEntity<List<StudentVO>> getPresentStudents(@PathVariable("seminarId") BigInteger seminarId,
+                                                              @PathVariable("classId") BigInteger classId) {
+        List<StudentVO> vos = new ArrayList<>();
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("2357"));
+        student.setName("张三");
+        vos.add(student);
+
+        student = new StudentVO();
+        student.setId(new BigInteger("8232"));
+        student.setName("李四");
+        vos.add(student);
+
+        return new ResponseEntity<List<StudentVO>>(vos, HttpStatus.OK);
+    }
+
+    @GetMapping("/seminar/{seminarId}/class/{classId}/attendance/late")
+    public ResponseEntity<List<StudentVO>> getLateStudents(@PathVariable("seminarId") BigInteger seminarId,
+                                                           @PathVariable("classId") BigInteger classId) {
+        List<StudentVO> vos = new ArrayList<>();
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("2897"));
+        student.setName("赵六");
+        vos.add(student);
+
+        return new ResponseEntity<List<StudentVO>>(vos, HttpStatus.OK);
+    }
+
+    @GetMapping("/seminar/{seminarId}/class/{classId}/attendance/absent")
+    public ResponseEntity<List<StudentVO>> getAbsentStudents(@PathVariable("seminarId") BigInteger seminarId,
+                                                             @PathVariable("classId") BigInteger classId) {
+        List<StudentVO> vos = new ArrayList<>();
+        StudentVO student = new StudentVO();
+        student.setId(new BigInteger("4597"));
+        student.setName("王八");
+        vos.add(student);
+
+        return new ResponseEntity<List<StudentVO>>(vos, HttpStatus.OK);
+    }
+
+    /**
+     * 签到
+     *
+     * @param classId
+     * @param studentId
+     * @param dto       请求的gps数据
+     * @return
+     */
+    @PutMapping("/seminar/{seminarId}/class/{classId}/attendance/{studentId}")
+    public ResponseEntity rollCall(@PathVariable("seminarId") BigInteger seminarId,
+                                   @PathVariable("classId") BigInteger classId,
+                                   @PathVariable("studentId") BigInteger studentId,
+                                   @RequestBody GpsDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

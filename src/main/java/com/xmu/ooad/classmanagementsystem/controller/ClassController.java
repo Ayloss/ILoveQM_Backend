@@ -42,71 +42,8 @@ public class ClassController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/class/{classId}/attendance")
-    public ResponseEntity<PresentVO> getAttendance(@PathVariable("classId") BigInteger classId,
-                                                   @RequestParam(value = "showPresent",required = false) Boolean showPresent,
-                                                   @RequestParam(value = "showLate",required = false) Boolean showLate,
-                                                   @RequestParam(value = "showAbsent",required = false) Boolean showAbsent) {
 
 
-        PresentVO vo = new PresentVO();
-        vo.setNumPresent(2);
-
-        List<StudentVO> presentStudents = new ArrayList<>();
-        StudentVO studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("2357"));
-        studentVO.setName("张三");
-        presentStudents.add(studentVO);
-        studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("8232"));
-        studentVO.setName("李四");
-        presentStudents.add(studentVO);
-        vo.setPresent(presentStudents);
-
-        if(showLate!= null && showLate) {
-            List<StudentVO> late = new ArrayList<>();
-            studentVO = new StudentVO();
-            studentVO.setId(new BigInteger("2157"));
-            studentVO.setName("老王");
-            late.add(studentVO);
-            studentVO = new StudentVO();
-            studentVO.setId(new BigInteger("9232"));
-            studentVO.setName("王二狗");
-            late.add(studentVO);
-            vo.setLate(late);
-        }
-
-        if(showAbsent!=null && showAbsent) {
-            List<StudentVO> absent = new ArrayList<>();
-            studentVO = new StudentVO();
-            studentVO.setId(new BigInteger("2777"));
-            studentVO.setName("李蛋蛋");
-            absent.add(studentVO);
-            studentVO = new StudentVO();
-            studentVO.setId(new BigInteger("9932"));
-            studentVO.setName("李狗强");
-            absent.add(studentVO);
-            vo.setAbsent(absent);
-        }
-
-        return new ResponseEntity<>(vo, HttpStatus.OK);
-    }
-
-    /**
-     * 签到
-     *
-     * @param classId
-     * @param studentId
-     * @param dto 请求的gps数据
-     * @return
-     */
-    @PutMapping("/class/{classId}/attendance/{studentId}")
-    public ResponseEntity rollCall(@PathVariable("classId") BigInteger classId,
-                                   @PathVariable("studentId") BigInteger studentId,
-                                   @RequestBody GpsDTO dto) {
-
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
-    }
 
     @GetMapping("/class/{classId}/classgroup")
     public ResponseEntity<GroupVO> getClassGroup(@PathVariable("classId") BigInteger classId) {

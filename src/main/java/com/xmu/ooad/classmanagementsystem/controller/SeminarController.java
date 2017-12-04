@@ -48,11 +48,23 @@ public class SeminarController {
         GroupVO group = new GroupVO();
         group.setId(new BigInteger("27"));
         group.setName("A1");
+        List<TopicVO> topics = new ArrayList<>();
+        TopicVO topic = new TopicVO();
+        topic.setId(new BigInteger("45"));
+        topic.setName("领域模型与模块");
+        topics.add(topic);
+        group.setTopics(topics);
         vos.add(group);
 
         group = new GroupVO();
         group.setId(new BigInteger("29"));
         group.setName("A2");
+        topics = new ArrayList<>();
+        topic = new TopicVO();
+        topic.setId(new BigInteger("45"));
+        topic.setName("领域模型与模块");
+        topics.add(topic);
+        group.setTopics(topics);
         vos.add(group);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);

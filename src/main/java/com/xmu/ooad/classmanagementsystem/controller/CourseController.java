@@ -2,7 +2,6 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.vo.ClassVO;
 import com.xmu.ooad.classmanagementsystem.vo.CourseVO;
-import com.xmu.ooad.classmanagementsystem.vo.GroupVO;
 import com.xmu.ooad.classmanagementsystem.vo.SeminarVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

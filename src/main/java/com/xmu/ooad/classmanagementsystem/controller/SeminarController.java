@@ -47,6 +47,7 @@ public class SeminarController {
 
         GroupVO group = new GroupVO();
         group.setId(new BigInteger("27"));
+
         vos.add(group);
 
         group = new GroupVO();
@@ -101,6 +102,14 @@ public class SeminarController {
         topic.setGroupLimit(5);
         topic.setGroupLeft(2);
 
+        vos.add(topic);
+
+        topic = new TopicVO();
+        topic.setId(new BigInteger("258"));
+        topic.setName("领域模型与模块1");
+        topic.setDescription("Domain model与模块划分1");
+        topic.setGroupLimit(5);
+        topic.setGroupLeft(0);
         vos.add(topic);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);

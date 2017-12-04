@@ -2,6 +2,7 @@ package com.xmu.ooad.classmanagementsystem.controller;
 
 import com.xmu.ooad.classmanagementsystem.dto.GroupDTO;
 import com.xmu.ooad.classmanagementsystem.dto.GroupGradeDTO;
+import com.xmu.ooad.classmanagementsystem.dto.StudentDTO;
 import com.xmu.ooad.classmanagementsystem.vo.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author status200
  * @date 2017/11/30
  */
@@ -31,8 +31,8 @@ public class GroupController {
      */
     @GetMapping("/group/{groupId}")
     public ResponseEntity<GroupVO> getGroup(@PathVariable("groupId") BigInteger groupId,
-                                            @RequestParam(value = "embedTopics",required = false) Boolean embedTopics,
-                                            @RequestParam(value = "embedGrade",required = false) Boolean embedGrade) {
+                                            @RequestParam(value = "embedTopics", required = false) Boolean embedTopics,
+                                            @RequestParam(value = "embedGrade", required = false) Boolean embedGrade) {
         GroupVO vo = new GroupVO();
 
         vo.setId(new BigInteger("28"));
@@ -56,7 +56,7 @@ public class GroupController {
 
         vo.setMembers(members);
 
-        if(embedTopics != null && embedTopics) {
+        if (embedTopics != null && embedTopics) {
             List<TopicVO> topics = new ArrayList<>();
 
             TopicVO topic = new TopicVO();
@@ -70,7 +70,7 @@ public class GroupController {
         vo.setReport("");
 
 
-        if(embedGrade != null && embedGrade) {
+        if (embedGrade != null && embedGrade) {
             SeminarGradeVO grade = new SeminarGradeVO();
             List<PresentationGradeVO> presentationGradeVOS = new ArrayList<>();
 
@@ -127,14 +127,13 @@ public class GroupController {
 
 
     @PostMapping("/group/{groupId}/topic")
-    public ResponseEntity<UrlVO> chooseTopic(@PathVariable("seminarId") BigInteger seminarId,
+    public ResponseEntity<UrlVO> chooseTopic(@PathVariable("groupId") BigInteger seminarId,
                                              @RequestBody TopicVO topicVO) {
 
         return new ResponseEntity<>(new UrlVO("/group/28/topic/23"), HttpStatus.OK);
     }
 
     /**
-     *
      * @param groupId
      * @param studentId
      * @param dto
@@ -144,6 +143,20 @@ public class GroupController {
     public ResponseEntity grade(@PathVariable("groupId") BigInteger groupId,
                                 @PathVariable("studentId") BigInteger studentId,
                                 @RequestBody GroupGradeDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/group/{groupId}/assign")
+    public ResponseEntity assignLeader(@PathVariable("groupId") BigInteger groupId,
+                                       @RequestBody StudentDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/group/{groupId}/resign")
+    public ResponseEntity resginLeader(@PathVariable("groupId") BigInteger groupId,
+                                       @RequestBody StudentDTO dto) {
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

@@ -20,6 +20,7 @@ import java.util.List;
 public class SeminarVO {
     private BigInteger id;
     private String name;
+    private String courseName;
     private String description;
     private String groupingMethod;
     private String startTime;

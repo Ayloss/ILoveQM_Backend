@@ -100,7 +100,27 @@ public class CourseController {
     public ResponseEntity<SeminarVO> getCurrentSeminar(@PathVariable("courseId") BigInteger courseId) {
 
         SeminarVO seminar = new SeminarVO();
+        seminar.setId(new BigInteger("29"));
+        seminar.setName("界面原型设计");
+        seminar.setCourseName("OOAD");
+        seminar.setGroupingMethod("fixed");
+        seminar.setStartTime("2017-09-25");
+        seminar.setEndTime("2017-10-09");
 
-        return new ResponseEntity(HttpStatus.OK);
+        List<ClassVO> classes = new ArrayList<>();
+        ClassVO clas = new ClassVO();
+        clas.setId(new BigInteger("53"));
+        clas.setName("周三12");
+        classes.add(clas);
+
+        classes = new ArrayList<>();
+        clas = new ClassVO();
+        clas.setId(new BigInteger("57"));
+        clas.setName("周三34");
+        classes.add(clas);
+
+        seminar.setClasses(classes);
+
+        return new ResponseEntity<>(seminar,HttpStatus.OK);
     }
 }

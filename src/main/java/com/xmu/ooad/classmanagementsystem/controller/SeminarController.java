@@ -206,11 +206,13 @@ public class SeminarController {
      * @return
      */
     @PutMapping("/seminar/{seminarId}/class/{classId}/attendance/{studentId}")
-    public ResponseEntity rollCall(@PathVariable("seminarId") BigInteger seminarId,
+    public ResponseEntity<PresentStatusVO> rollCall(@PathVariable("seminarId") BigInteger seminarId,
                                    @PathVariable("classId") BigInteger classId,
                                    @PathVariable("studentId") BigInteger studentId,
                                    @RequestBody GpsDTO dto) {
 
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        PresentStatusVO vo = new PresentStatusVO();
+        vo.setStatus("late");
+        return new ResponseEntity<>(vo,HttpStatus.OK);
     }
 }

@@ -32,6 +32,21 @@ public class SeminarController {
     }
 
 
+    @GetMapping("/seminar/{seminarId}/my")
+    public ResponseEntity<SeminarVO> getMySeminar(@PathVariable("seminarId") BigInteger seminarId) {
+        SeminarVO vo = new SeminarVO();
+        vo.setId(new BigInteger("32"));
+        vo.setName("概要设计");
+        vo.setGroupingMethod("random");
+        vo.setCourseName("OOAD");
+        vo.setStartTime("2017-10-11");
+        vo.setEndTime("2017-10-24");
+        vo.setClassCalling(23);
+        vo.setIsLeader(true);
+        vo.setAreTopicsSelected(true);
+
+        return new ResponseEntity<>(vo, HttpStatus.OK);
+    }
     /**
      * 获得分组信息
      *

@@ -30,4 +30,7 @@ public class SeminarVO {
     private String teacherEmail;
     private Integer grade;
     private List<ClassVO> classes;
+    private Integer classCalling;
+    private Boolean isLeader;
+    private Boolean areTopicsSelected;
 }

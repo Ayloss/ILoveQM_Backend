@@ -19,4 +19,5 @@ import java.math.BigInteger;
 public class TopicDTO {
 
     private BigInteger id;
+    private String name;
 }

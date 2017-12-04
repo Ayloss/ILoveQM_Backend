@@ -134,6 +134,8 @@ public class GroupController {
     }
 
     /**
+     * 提交对其他小组的打分
+     *
      * @param groupId
      * @param studentId
      * @param dto

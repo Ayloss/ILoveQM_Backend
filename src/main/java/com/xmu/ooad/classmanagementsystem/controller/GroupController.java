@@ -157,8 +157,22 @@ public class GroupController {
     }
 
     @PutMapping("/group/{groupId}/resign")
-    public ResponseEntity resginLeader(@PathVariable("groupId") BigInteger groupId,
+    public ResponseEntity resignLeader(@PathVariable("groupId") BigInteger groupId,
                                        @RequestBody StudentDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/group/{groupId}/add")
+    public ResponseEntity addMember(@PathVariable("groupId") BigInteger groupId,
+                                    @RequestBody StudentDTO dto) {
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/group/{groupId}/remove")
+    public ResponseEntity removeMember(@PathVariable("groupId") BigInteger groupId,
+                                    @RequestBody StudentDTO dto) {
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

@@ -1,6 +1,8 @@
 package com.xmu.ooad.classmanagementsystem.controller;
 
+import com.xmu.ooad.classmanagementsystem.vo.ClassVO;
 import com.xmu.ooad.classmanagementsystem.vo.CourseVO;
+import com.xmu.ooad.classmanagementsystem.vo.GroupVO;
 import com.xmu.ooad.classmanagementsystem.vo.SeminarVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,5 +71,22 @@ public class CourseController {
 
 
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/course/{courseId}/class")
+    public ResponseEntity<List<ClassVO>> getCourseClasses(@PathVariable("courseId") BigInteger courseId) {
+
+        List<ClassVO> vos = new ArrayList<>();
+        ClassVO vo = new ClassVO();
+        vo.setId(new BigInteger("45"));
+        vo.setName("周三1-2节");
+        vos.add(vo);
+
+        vo = new ClassVO();
+        vo.setId(new BigInteger("48"));
+        vo.setName("周三3-4节");
+        vos.add(vo);
+
+        return new ResponseEntity<>(vos, HttpStatus.OK);
     }
 }

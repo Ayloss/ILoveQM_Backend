@@ -62,28 +62,33 @@ public class ClassController {
         studentVO.setName("李四");
         presentStudents.add(studentVO);
         vo.setPresent(presentStudents);
-        
-        List<StudentVO> late = new ArrayList<>();
-        studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("2157"));
-        studentVO.setName("老王");
-        late.add(studentVO);
-        studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("9232"));
-        studentVO.setName("王二狗");
-        late.add(studentVO);
-        vo.setLate(late);
 
-        List<StudentVO> absent = new ArrayList<>();
-        studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("2777"));
-        studentVO.setName("李蛋蛋");
-        absent.add(studentVO);
-        studentVO = new StudentVO();
-        studentVO.setId(new BigInteger("9932"));
-        studentVO.setName("李狗强");
-        absent.add(studentVO);
-        vo.setAbsent(absent);
+        if(showLate!= null && showLate) {
+            List<StudentVO> late = new ArrayList<>();
+            studentVO = new StudentVO();
+            studentVO.setId(new BigInteger("2157"));
+            studentVO.setName("老王");
+            late.add(studentVO);
+            studentVO = new StudentVO();
+            studentVO.setId(new BigInteger("9232"));
+            studentVO.setName("王二狗");
+            late.add(studentVO);
+            vo.setLate(late);
+        }
+
+        if(showAbsent!=null && showAbsent) {
+            List<StudentVO> absent = new ArrayList<>();
+            studentVO = new StudentVO();
+            studentVO.setId(new BigInteger("2777"));
+            studentVO.setName("李蛋蛋");
+            absent.add(studentVO);
+            studentVO = new StudentVO();
+            studentVO.setId(new BigInteger("9932"));
+            studentVO.setName("李狗强");
+            absent.add(studentVO);
+            vo.setAbsent(absent);
+        }
+
         return new ResponseEntity<>(vo, HttpStatus.OK);
     }
 

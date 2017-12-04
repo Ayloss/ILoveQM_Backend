@@ -26,4 +26,5 @@ public class SeminarVO {
     private String site;
     private String teacherName;
     private String teacherEmail;
+    private Integer grade;
 }

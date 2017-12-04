@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
@@ -48,7 +49,8 @@ public class CourseController {
     }
 
     @GetMapping("/course/{courseId}/seminar")
-    public ResponseEntity<List<SeminarVO>> getSeminar(@PathVariable("courseId") BigInteger courseId) {
+    public ResponseEntity<List<SeminarVO>> getSeminar(@PathVariable("courseId") BigInteger courseId,
+                                                      @RequestParam(value = "embedGrade",required = false) Boolean embedGrade) {
         List<SeminarVO> list = new ArrayList<>();
         SeminarVO seminar = new SeminarVO();
         seminar.setId(new BigInteger("29"));
@@ -57,6 +59,9 @@ public class CourseController {
         seminar.setGroupingMethod("fixed");
         seminar.setStartTime("2017-09-25");
         seminar.setEndTime("2017-10-09");
+        if(embedGrade!=null&&embedGrade) {
+            seminar.setGrade(4);
+        }
         list.add(seminar);
 
         seminar = new SeminarVO();
@@ -66,6 +71,9 @@ public class CourseController {
         seminar.setDescription("模型层与数据库设计");
         seminar.setStartTime("2017-10-10");
         seminar.setEndTime("2017-10-24");
+        if(embedGrade!=null&&embedGrade) {
+            seminar.setGrade(5);
+        }
         list.add(seminar);
 
 

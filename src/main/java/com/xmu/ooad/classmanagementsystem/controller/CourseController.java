@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author status200
  * @date 2017/11/28
  */
@@ -50,7 +49,7 @@ public class CourseController {
 
     @GetMapping("/course/{courseId}/seminar")
     public ResponseEntity<List<SeminarVO>> getSeminar(@PathVariable("courseId") BigInteger courseId,
-                                                      @RequestParam(value = "embedGrade",required = false) Boolean embedGrade) {
+                                                      @RequestParam(value = "embedGrade", required = false) Boolean embedGrade) {
         List<SeminarVO> list = new ArrayList<>();
         SeminarVO seminar = new SeminarVO();
         seminar.setId(new BigInteger("29"));
@@ -59,7 +58,7 @@ public class CourseController {
         seminar.setGroupingMethod("fixed");
         seminar.setStartTime("2017-09-25");
         seminar.setEndTime("2017-10-09");
-        if(embedGrade!=null&&embedGrade) {
+        if (embedGrade != null && embedGrade) {
             seminar.setGrade(4);
         }
         list.add(seminar);
@@ -71,7 +70,7 @@ public class CourseController {
         seminar.setDescription("模型层与数据库设计");
         seminar.setStartTime("2017-10-10");
         seminar.setEndTime("2017-10-24");
-        if(embedGrade!=null&&embedGrade) {
+        if (embedGrade != null && embedGrade) {
             seminar.setGrade(5);
         }
         list.add(seminar);
@@ -95,5 +94,13 @@ public class CourseController {
         vos.add(vo);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);
+    }
+
+    @GetMapping("/course/{courseId}/seminar/current")
+    public ResponseEntity<SeminarVO> getCurrentSeminar(@PathVariable("courseId") BigInteger courseId) {
+
+        SeminarVO seminar = new SeminarVO();
+
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

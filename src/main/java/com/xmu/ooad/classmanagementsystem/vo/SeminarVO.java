@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  *
@@ -27,4 +28,5 @@ public class SeminarVO {
     private String teacherName;
     private String teacherEmail;
     private Integer grade;
+    private List<ClassVO> classes;
 }

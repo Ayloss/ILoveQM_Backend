@@ -19,6 +19,34 @@ import java.util.List;
 @RestController
 public class ClassController {
 
+    @GetMapping("/class")
+    public ResponseEntity<List<ClassVO>> getClasses() {
+        List<ClassVO> vos = new ArrayList<>();
+
+        ClassVO vo = new ClassVO();
+        vo.setId(new BigInteger("23"));
+        vo.setName("周三1-2节");
+        vo.setNumStudent(60);
+        vo.setTime("周三1-2、周五1-2");
+        vo.setSite("公寓405");
+        vo.setCourseName("OOAD");
+        vo.setCourseTeacher("邱明");
+        vos.add(vo);
+
+        vo = new ClassVO();
+        vo.setId(new BigInteger("42"));
+        vo.setName("一班");
+        vo.setNumStudent(60);
+        vo.setTime("周三34、周五12");
+        vo.setSite("公海韵202");
+        vo.setCourseName(".Net 平台开发");
+        vo.setCourseTeacher("邱明");
+        vos.add(vo);
+
+        return new ResponseEntity<List<ClassVO>>(vos, HttpStatus.OK);
+    }
+
+
     @GetMapping("/class/{classId}")
     public ResponseEntity<ClassVO> getClass(@PathVariable("classId") BigInteger classId) {
         ClassVO vo = new ClassVO();
@@ -37,12 +65,11 @@ public class ClassController {
 
         return new ResponseEntity<>(vo, HttpStatus.OK);
     }
+
     @PutMapping("/class/{classId}")
     public ResponseEntity updateClass(@PathVariable("classId") BigInteger classId,@RequestBody ClassDTO dto) {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
-
 
 
     @GetMapping("/class/{classId}/classgroup")

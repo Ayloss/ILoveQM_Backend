@@ -26,4 +26,6 @@ public class ClassVO {
     private Integer calling;
     private String roster;
     private ClassProportionsVO proportions;
+    private String courseName;
+    private String courseTeacher;
 }

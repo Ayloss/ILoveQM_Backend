@@ -43,7 +43,7 @@ public class SeminarController {
         vo.setEndTime("2017-10-24");
         vo.setClassCalling(23);
         vo.setIsLeader(true);
-        vo.setAreTopicsSelected(true);
+        vo.setAreTopicsSelected(false);
 
         return new ResponseEntity<>(vo, HttpStatus.OK);
     }

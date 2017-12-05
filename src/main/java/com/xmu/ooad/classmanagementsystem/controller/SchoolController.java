@@ -37,7 +37,7 @@ public class SchoolController {
         vo.setCity("厦门");
         list.add(vo);
 
-        return new ResponseEntity<List<SchoolVO>>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 
@@ -50,12 +50,12 @@ public class SchoolController {
     @GetMapping("/school/province")
     public ResponseEntity<List<String>> getProvinces() {
 
-        return new ResponseEntity<List<String>>(Arrays.asList("北京", "天津", "河北省", "澳门特别行政区"),HttpStatus.OK);
+        return new ResponseEntity<>(Arrays.asList("北京", "天津", "河北", "澳门特别行政区"), HttpStatus.OK);
     }
 
     @GetMapping("/school/city")
     public ResponseEntity<List<String>> getCitysOfProvince(@RequestParam("province") String province) {
 
-        return new ResponseEntity<List<String>>(Arrays.asList("北京", "天津", "河北省", "澳门特别行政区"),HttpStatus.OK);
+        return new ResponseEntity<>(Arrays.asList("北京市", "天津市", "河北省", "香港特别行政区","厦门市","泉州市","莆田市"), HttpStatus.OK);
     }
 }

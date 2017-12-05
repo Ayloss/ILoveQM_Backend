@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author status200
@@ -16,13 +18,16 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserInfoDTO {
 
+    private BigInteger id;
+    private String type;
     private String name;
+    private String phone;
     private String number;
     private String email;
     private String gender;
     private String title;
     private String avatar;
     private SchoolDTO school;
+    private String password;
     private String unionID;
-    private String phone;
 }

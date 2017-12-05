@@ -41,10 +41,14 @@ public class CourseController {
     @GetMapping("/course/{courseId}")
     public ResponseEntity<CourseVO> getCourseDetail(@PathVariable("courseId") BigInteger courseId) {
 
-        return new ResponseEntity<>(
-                new CourseVO(new BigInteger("23"), "OOAD", "面向对象分析与设计"),
-                HttpStatus.OK
-        );
+        CourseVO vo = new CourseVO();
+        vo.setId(new BigInteger("23"));
+        vo.setName("OOAD");
+        vo.setDescription("面向对象分析与设计");
+        vo.setTeacherEmail("qm@xmu.edu.cn");
+        vo.setTeacherName("邱明");
+
+        return new ResponseEntity<>(vo,HttpStatus.OK);
     }
 
     @GetMapping("/course/{courseId}/seminar")
@@ -66,7 +70,7 @@ public class CourseController {
         seminar = new SeminarVO();
         seminar.setId(new BigInteger("32"));
         seminar.setName("概要设计");
-        seminar.setGroupingMethod("fixed");
+        seminar.setGroupingMethod("random");
         seminar.setDescription("模型层与数据库设计");
         seminar.setStartTime("2017-10-10");
         seminar.setEndTime("2017-10-24");

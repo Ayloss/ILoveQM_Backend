@@ -130,7 +130,7 @@ public class GroupController {
     public ResponseEntity<UrlVO> chooseTopic(@PathVariable("groupId") BigInteger seminarId,
                                              @RequestBody TopicVO topicVO) {
 
-        return new ResponseEntity<>(new UrlVO("/group/28/topic/23"), HttpStatus.OK);
+        return new ResponseEntity<>(new UrlVO("/group/28/topic/23"), HttpStatus.CREATED);
     }
 
     /**

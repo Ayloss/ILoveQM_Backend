@@ -52,6 +52,8 @@ public class ClassController {
         ClassVO vo = new ClassVO();
         vo.setId(new BigInteger("23"));
         vo.setName("周三1-2节");
+        vo.setTime("周三1-2、周五1-2");
+        vo.setSite("公寓405");
         vo.setNumStudent(120);
         vo.setCalling(-1);
         vo.setRoster("/roster/周三12班.xlsx");

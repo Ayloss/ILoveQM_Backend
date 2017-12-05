@@ -21,4 +21,6 @@ public class CourseVO {
     private BigInteger id;
     private String name;
     private String description;
+    private String teacherName;
+    private String teacherEmail;
 }

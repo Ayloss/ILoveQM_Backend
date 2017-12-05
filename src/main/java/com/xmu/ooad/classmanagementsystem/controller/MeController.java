@@ -17,7 +17,7 @@ import java.math.BigInteger;
  * @date 2017/11/27
  */
 @RestController
-public class PersonInfoController {
+public class MeController {
 
     /**
      * 获取用户信息。

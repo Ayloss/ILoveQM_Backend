@@ -197,6 +197,11 @@ public class SeminarController {
         student.setName("赵六");
         vos.add(student);
 
+        student = new StudentVO();
+        student.setId(new BigInteger("8232"));
+        student.setName("李四");
+        vos.add(student);
+
         return new ResponseEntity<List<StudentVO>>(vos, HttpStatus.OK);
     }
 
@@ -209,6 +214,10 @@ public class SeminarController {
         student.setName("王八");
         vos.add(student);
 
+        student = new StudentVO();
+        student.setId(new BigInteger("8232"));
+        student.setName("李四");
+        vos.add(student);
         return new ResponseEntity<List<StudentVO>>(vos, HttpStatus.OK);
     }
 

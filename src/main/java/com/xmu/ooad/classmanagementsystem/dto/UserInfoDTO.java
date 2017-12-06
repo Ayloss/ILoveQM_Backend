@@ -1,6 +1,11 @@
 package com.xmu.ooad.classmanagementsystem.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigInteger;
 
 /**
  *
@@ -8,22 +13,21 @@ import lombok.Data;
  * @date 2017/11/28
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserInfoDTO {
 
+    private BigInteger id;
+    private String type;
     private String name;
+    private String phone;
     private String number;
     private String email;
     private String gender;
     private String title;
     private String avatar;
-
-
-    public UserInfoDTO(String name, String number, String email, String gender, String title, String avatar) {
-        this.name = name;
-        this.number = number;
-        this.email = email;
-        this.gender = gender;
-        this.title = title;
-        this.avatar = avatar;
-    }
+    private SchoolDTO school;
+    private String password;
+    private String unionID;
 }

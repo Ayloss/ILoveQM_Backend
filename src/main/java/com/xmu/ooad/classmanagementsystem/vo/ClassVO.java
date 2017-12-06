@@ -10,21 +10,22 @@ import java.math.BigInteger;
 /**
  *
  * @author status200
- * @date 2017/11/29
+ * @date 2017/11/30
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CourseVO {
+public class ClassVO {
 
     private BigInteger id;
     private String name;
-    private String description;
-    private String teacherName;
-    private String teacherEmail;
-    private Integer numClass;
     private Integer numStudent;
-    private String startTime;
-    private String endTime;
+    private String time;
+    private String site;
+    private Integer calling;
+    private String roster;
+    private ClassProportionsVO proportions;
+    private String courseName;
+    private String courseTeacher;
 }

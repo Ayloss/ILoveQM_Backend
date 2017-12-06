@@ -8,17 +8,16 @@ import lombok.NoArgsConstructor;
 /**
  *
  * @author status200
- * @date 2017/11/30
+ * @date 2017/12/4
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClassProportionsVO {
+public class SeminarStatusVO {
 
-    private Integer a;
-    private Integer b;
-    private Integer c;
-    private Integer report;
-    private Integer presentation;
+    private Integer numPresent;
+    private Integer numStudent;
+    private String status;
+    private String group;
 }

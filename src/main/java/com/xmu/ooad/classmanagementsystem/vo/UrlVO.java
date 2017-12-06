@@ -1,20 +1,17 @@
-package com.xmu.ooad.classmanagementsystem.dto;
+package com.xmu.ooad.classmanagementsystem.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
  * @author status200
  * @date 2017/11/30
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BindAccountDTO {
+public class UrlVO {
 
-    private String number;
-    private String name;
-    private String school;
+    private String url;
 }

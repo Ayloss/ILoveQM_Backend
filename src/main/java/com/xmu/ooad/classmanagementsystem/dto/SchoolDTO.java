@@ -1,11 +1,8 @@
-package com.xmu.ooad.classmanagementsystem.vo;
+package com.xmu.ooad.classmanagementsystem.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigInteger;
 
 /**
  *
@@ -15,10 +12,7 @@ import java.math.BigInteger;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class SchoolVO {
-
-    private BigInteger id;
+public class SchoolDTO {
     private String name;
     private String province;
     private String city;

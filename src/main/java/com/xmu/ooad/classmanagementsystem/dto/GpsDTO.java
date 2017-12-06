@@ -1,21 +1,21 @@
 package com.xmu.ooad.classmanagementsystem.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 /**
  *
  * @author status200
- * @date 2017/11/29
+ * @date 2017/12/1
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassDTO {
-
-    private Integer calling;
+public class GpsDTO {
+    private BigDecimal longitude;
+    private BigDecimal latitude;
+    private BigDecimal elevation;
 }

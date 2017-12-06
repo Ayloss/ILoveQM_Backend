@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
+import java.util.List;
+
 /**
  *
  * @author status200
@@ -14,11 +17,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClassProportionsVO {
+public class GroupVO {
 
-    private Integer a;
-    private Integer b;
-    private Integer c;
-    private Integer report;
-    private Integer presentation;
+    private BigInteger id;
+    private String name;
+    private StudentVO leader;
+    private List<StudentVO> members;
+    private List<TopicVO> topics;
+    private String report;
+    private SeminarGradeVO grade;
 }

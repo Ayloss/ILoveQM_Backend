@@ -28,10 +28,18 @@ public class CourseController {
         CourseVO vo = new CourseVO();
         vo.setId(new BigInteger("1"));
         vo.setName("J2EE");
+        vo.setNumClass(3);
+        vo.setNumStudent(60);
+        vo.setStartTime("2017-9-1");
+        vo.setEndTime("2018-1-1");
         vos.add(vo);
         vo = new CourseVO();
         vo.setId(new BigInteger("2"));
         vo.setName("OOAD");
+        vo.setNumClass(3);
+        vo.setNumStudent(60);
+        vo.setStartTime("2017-9-1");
+        vo.setEndTime("2018-1-1");
         vos.add(vo);
 
         return new ResponseEntity<>(vos, HttpStatus.OK);

@@ -23,4 +23,8 @@ public class CourseVO {
     private String description;
     private String teacherName;
     private String teacherEmail;
+    private Integer numClass;
+    private Integer numStudent;
+    private String startTime;
+    private String endTime;
 }

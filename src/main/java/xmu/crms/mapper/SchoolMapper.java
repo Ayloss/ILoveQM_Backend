@@ -22,7 +22,5 @@ public interface SchoolMapper {
 
     List<School> listSchoolByCity(@Param("city") String city);
 
-    List<School> listAll();
-
-    School getSchoolBySchoolId(BigInteger SchoolId);
+    School getSchoolBySchoolId(BigInteger schoolId);
 }

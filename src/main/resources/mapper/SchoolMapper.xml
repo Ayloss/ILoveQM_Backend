@@ -11,8 +11,6 @@
     <select id="listSchoolByCity" resultType="xmu.crms.entity.School">
         SELECT
             id,
-            gmt_create,
-            gmt_modified,
             name,
             province,
             city
@@ -20,16 +18,9 @@
         WHERE city = #{city};
     </select>
 
-    <select id="listAll" resultType="xmu.crms.entity.School">
-        SELECT *
-        FROM school;
-    </select>
-
     <select id="getSchoolBySchoolId" resultType="xmu.crms.entity.School">
         SELECT
             id,
-            gmt_create,
-            gmt_modified,
             name,
             province,
             city

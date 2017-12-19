@@ -54,5 +54,5 @@ public interface SchoolService {
 	 * @param SchoolId 学校id
 	 * @return SchoolBO 学校信息
 	 */
-	 School getSchoolBySchoolId(BigInteger SchoolId);
+	 School getSchoolBySchoolId(BigInteger schoolId);
 }

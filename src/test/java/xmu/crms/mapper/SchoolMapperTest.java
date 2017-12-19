@@ -25,7 +25,7 @@ public class SchoolMapperTest {
 
     @Test
     public void testListSchoolByCity() throws Exception {
-        List<School> list = schoolMapper.listSchoolByCity("青海");
+        List<School> list = schoolMapper.listSchoolByCity("重庆");
 
         log.info(list);
         log.info(list.size());

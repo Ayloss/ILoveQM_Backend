@@ -6,7 +6,9 @@ import java.math.BigInteger;
 import java.util.List;
 
 /**
- * Created by status200 on 2017/12/19.
+ *
+ * @author status200
+ * @date 2017/12/19
  */
 
 public class SchoolServiceImpl implements SchoolService {
@@ -31,7 +33,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public School getSchoolBySchoolId(BigInteger SchoolId) {
+    public School getSchoolBySchoolId(BigInteger schoolId) {
         return null;
     }
 }

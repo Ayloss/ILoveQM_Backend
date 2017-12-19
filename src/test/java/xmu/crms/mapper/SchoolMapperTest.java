@@ -31,14 +31,7 @@ public class SchoolMapperTest {
         log.info(list);
         log.info(list.size());
     }
-
-    @Test
-    public void testListAll() throws Exception {
-        List<School> list = schoolMapper.listAll();
-
-        log.info(list);
-        log.info(list.size());
-    }
+    
 
     @Test
     public void testGetSchoolBySchoolId() throws Exception {

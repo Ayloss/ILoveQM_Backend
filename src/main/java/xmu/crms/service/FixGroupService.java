@@ -1,9 +1,5 @@
 package xmu.crms.service;
 
-import java.math.BigInteger;
-import java.util.List;
-import com.xmu.ooad.classmanagementsystem.entity.*;
-import com.xmu.ooad.classmanagementsystem.exception.*;
 import xmu.crms.entity.FixGroup;
 import xmu.crms.entity.SeminarGroup;
 import xmu.crms.entity.User;
@@ -11,6 +7,9 @@ import xmu.crms.exception.FixGroupNotFoundException;
 import xmu.crms.exception.InfoIllegalException;
 import xmu.crms.exception.InvalidOperationException;
 import xmu.crms.exception.UserNotFoundException;
+
+import java.math.BigInteger;
+import java.util.List;
 
 /**
  * 

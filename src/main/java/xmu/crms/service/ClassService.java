@@ -1,6 +1,5 @@
 package xmu.crms.service;
 
-import com.xmu.ooad.classmanagementsystem.entity.*;
 import xmu.crms.entity.ClassInfo;
 
 import java.math.BigInteger;

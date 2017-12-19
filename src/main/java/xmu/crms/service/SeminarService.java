@@ -1,7 +1,5 @@
 package xmu.crms.service;
 
-import com.xmu.ooad.classmanagementsystem.entity.*;
-import com.xmu.ooad.classmanagementsystem.exception.*;
 import xmu.crms.entity.Seminar;
 import xmu.crms.exception.CourseNotFoundException;
 import xmu.crms.exception.InfoIllegalException;

@@ -3,7 +3,6 @@ package xmu.crms.service;
 import java.math.BigInteger;
 import java.util.List;
 
-import com.xmu.ooad.classmanagementsystem.entity.*;
 import xmu.crms.entity.School;
 
 /**

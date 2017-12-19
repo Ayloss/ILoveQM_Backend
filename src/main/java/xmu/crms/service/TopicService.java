@@ -1,7 +1,5 @@
 package xmu.crms.service;
 
-import com.xmu.ooad.classmanagementsystem.entity.*;
-import com.xmu.ooad.classmanagementsystem.exception.*;
 import xmu.crms.entity.Topic;
 import xmu.crms.exception.InfoIllegalException;
 import xmu.crms.exception.TopicNotFoundException;

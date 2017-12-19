@@ -2,7 +2,18 @@ server:
   port: 8080
 
 spring:
+  # 数据库配置
   datasource:
     url: jdbc:mysql://120.77.173.98:3306/xmu8102
     username: xmu8102
     password: aed11cd7
+    driver-class-name: com.mysql.jdbc.Driver
+
+# mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: xmu.crms.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+

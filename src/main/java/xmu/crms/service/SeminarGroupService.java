@@ -1,13 +1,11 @@
 package xmu.crms.service;
-import java.math.BigInteger;
-import java.util.List;
-
-import com.xmu.ooad.classmanagementsystem.entity.*;
-import com.xmu.ooad.classmanagementsystem.exception.*;
 import xmu.crms.entity.SeminarGroup;
 import xmu.crms.entity.SeminarGroupMember;
 import xmu.crms.entity.User;
 import xmu.crms.exception.*;
+
+import java.math.BigInteger;
+import java.util.List;
 
 
 /**

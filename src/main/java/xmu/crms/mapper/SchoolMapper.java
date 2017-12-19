@@ -19,6 +19,7 @@ import java.util.List;
 @Component
 public interface SchoolMapper {
 
+
     List<School> listSchoolByCity(@Param("city") String city);
 
     School getSchoolBySchoolId(BigInteger schoolId);

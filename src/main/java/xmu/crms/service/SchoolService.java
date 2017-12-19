@@ -51,7 +51,7 @@ public interface SchoolService {
 	 * 获取学校信息.
 	 * <p>根据学校id，获取该学校的所有信息<br>
 	 * @author LiuAiqi
-	 * @param SchoolId 学校id
+	 * @param schoolId 学校id
 	 * @return SchoolBO 学校信息
 	 */
 	 School getSchoolBySchoolId(BigInteger schoolId);

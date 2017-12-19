@@ -8,6 +8,8 @@
 <mapper namespace="xmu.crms.mapper.SchoolMapper">
 
     <!-- id 就是方法名称 -->
+    <!-- resultType 指定返回的类型，如果返回多个，一样只要指定这个类型,mybatis会自动生成一个list-->
+    <!-- #{xxx}是参数的名称，参数会被填到这个位置 -->
     <select id="listSchoolByCity" resultType="xmu.crms.entity.School">
         SELECT
             id,

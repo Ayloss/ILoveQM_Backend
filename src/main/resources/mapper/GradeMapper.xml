@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace用来指定该xml文件对应的interface  -->
+<!-- 默认idea对于该xml文件是几乎没有任何提示的，需要装一个叫 mybatis free plugins 的插件 -->
+<mapper namespace="xmu.crms.mapper.GradeMapper">
+
+</mapper>

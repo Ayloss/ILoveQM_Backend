@@ -8,7 +8,7 @@
 <mapper namespace="xmu.crms.mapper.SchoolMapper">
 
     <!-- id 就是方法名称 -->
-    <select id="listSchoolByCity" resultType="xmu.crms.entity.School" parameterType="string">
+    <select id="listSchoolByCity" resultType="xmu.crms.entity.School">
         SELECT
             id,
             gmt_create,
@@ -18,6 +18,23 @@
             city
         FROM school
         WHERE city = #{city};
+    </select>
+
+    <select id="listAll" resultType="xmu.crms.entity.School">
+        SELECT *
+        FROM school;
+    </select>
+
+    <select id="getSchoolBySchoolId" resultType="xmu.crms.entity.School">
+        SELECT
+            id,
+            gmt_create,
+            gmt_modified,
+            name,
+            province,
+            city
+        FROM school
+        WHERE id = #{id}
     </select>
 
 

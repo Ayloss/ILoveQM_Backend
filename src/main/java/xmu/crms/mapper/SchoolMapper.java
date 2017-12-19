@@ -2,9 +2,11 @@ package xmu.crms.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 import xmu.crms.entity.School;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -19,4 +21,8 @@ import java.util.List;
 public interface SchoolMapper {
 
     List<School> listSchoolByCity(@Param("city") String city);
+
+    List<School> listAll();
+
+    School getSchoolBySchoolId(BigInteger SchoolId);
 }

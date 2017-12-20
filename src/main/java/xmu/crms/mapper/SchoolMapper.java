@@ -21,14 +21,24 @@ import java.util.List;
 @Component
 public interface SchoolMapper {
 
-
+    /**
+     * 列出当前城市下的学校
+     * @param city
+     * @return
+     */
     List<School> listSchoolByCity(@Param("city") String city);
 
+    /**
+     * 插入学校
+     * @param school
+     * @return
+     */
     boolean insertSchool(@Param("school") School school);
 
-    List<String> listProvince();
-
-    List<String> listCity(@Param("province") String province);
-
+    /**
+     * 根据学校ID获取学校
+     * @param schoolId
+     * @return
+     */
     School getSchoolBySchoolId(BigInteger schoolId);
 }

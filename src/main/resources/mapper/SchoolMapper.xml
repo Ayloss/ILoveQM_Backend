@@ -20,6 +20,22 @@
         WHERE city = #{city};
     </select>
 
+    <insert id="insertSchool" parameterType="xmu.crms.entity.School">
+        INSERT INTO school(name, province, city)
+        VALUES (#{school.name},#{school.province},#{school.city});
+    </insert>
+
+    <!--<select id="listProvince" resultType="String">
+        SELECT distinct province
+        FROM school
+    </select>
+
+    <select id="listCity" resultType="String">
+        SELECT city
+        FROM school
+        WHERE province=#{province}
+    </select>-->
+    
     <select id="getSchoolBySchoolId" resultType="xmu.crms.entity.School">
         SELECT
             id,
@@ -29,6 +45,8 @@
         FROM school
         WHERE id = #{id}
     </select>
+    
+    
 
 
 </mapper>

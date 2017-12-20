@@ -13,7 +13,9 @@ import java.util.List;
  * 注意，每个mapper要给其加上一个@Mapper的注解。
  * 且每个mapper都是接口，实现是由mybatis做的,不需要我们实现。
  *
- * Created by status200 on 2017/12/19.
+ *
+ * @author liuxin
+ * @date 2017/12/19
  */
 @Mapper
 @Component
@@ -21,6 +23,12 @@ public interface SchoolMapper {
 
 
     List<School> listSchoolByCity(@Param("city") String city);
+
+    boolean insertSchool(@Param("school") School school);
+
+    List<String> listProvince();
+
+    List<String> listCity(@Param("province") String province);
 
     School getSchoolBySchoolId(BigInteger schoolId);
 }

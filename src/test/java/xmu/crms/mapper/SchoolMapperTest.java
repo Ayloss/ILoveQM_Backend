@@ -37,7 +37,7 @@ public class SchoolMapperTest {
         school.setName("南昌大学");
         school.setCity("南昌");
         school.setProvince("江西");
-        boolean res = schoolMapper.insertSchool(school);
+        Boolean res = schoolMapper.insertSchool(school);
 
         log.info(res);
     }

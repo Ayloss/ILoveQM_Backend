@@ -23,22 +23,22 @@ public interface SchoolMapper {
 
     /**
      * 列出当前城市下的学校
-     * @param city
-     * @return
+     * @param city 城市名称
+     * @return 学校列表
      */
     List<School> listSchoolByCity(@Param("city") String city);
 
     /**
      * 插入学校
-     * @param school
-     * @return
+     * @param school 学校entity
+     * @return 是否成功插入
      */
-    boolean insertSchool(@Param("school") School school);
+    Boolean insertSchool(@Param("school") School school);
 
     /**
      * 根据学校ID获取学校
-     * @param schoolId
-     * @return
+     * @param schoolId 学校ID
+     * @return 学校entity
      */
     School getSchoolBySchoolId(BigInteger schoolId);
 }

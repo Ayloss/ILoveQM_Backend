@@ -22,8 +22,9 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public Boolean insertSchool(School school) {
-        return schoolMapper.insertSchool(school);
+    public BigInteger insertSchool(School school) {
+        schoolMapper.insertSchool(school);
+        return school.getId();
     }
 
     @Override

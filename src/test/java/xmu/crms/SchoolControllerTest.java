@@ -33,7 +33,7 @@ public class SchoolControllerTest {
 	 */
 	@Test
 	public void testGetSchoolList() throws Exception{
-		mvc.perform(get("/school?city={city}","福建"))
+		mvc.perform(get("/school?city={city}","天津"))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$[0].id").isNumber())
 			.andExpect(jsonPath("$[0].name").isString())

@@ -7,4 +7,79 @@
 <!-- 默认idea对于该xml文件是几乎没有任何提示的，需要装一个叫 mybatis free plugins 的插件 -->
 <mapper namespace="xmu.crms.mapper.ClassMapper">
 
+    <update id="updateClassByClassId">
+        UPDATE class_info
+        <set>
+            <if test="newClass.name != null">
+                name = #{newClass.name},
+            </if>
+            <if test="newClass.course != null">
+                course_id = #{newClass.course.id},
+            </if>
+            <if test="newClass.site != null">
+                site = #{newClass.site},
+            </if>
+            <if test="newClass.classTime != null">
+                class_time = #{newClass.classTime},
+            </if>
+            <if test="newClass.description != null">
+                description = #{newClass.description},
+            </if>
+            <if test="newClass.reportPercentage != null">
+                report_percentage = #{newClass.reportPercentage},
+            </if>
+            <if test="newClass.fivePointPercentage != null">
+                five_point_percentage = #{newClass.fivePointPercentage},
+            </if>
+            <if test="newClass.fourPointPercentage != null">
+                four_point_percentage = #{newClass.fourPointPercentage},
+            </if>
+            <if test="newClass.threePointPercentage != null">
+                three_point_percentage = #{newClass.threePointPercentage}
+            </if>
+        </set>
+        WHERE
+          id = #{classId}
+    </update>
+
+    <delete id="deleteClassSelectionByClassId">
+        DELETE FROM course_selection WHERE class_id = #{classId};
+    </delete>
+
+    <select id="getClassByClassId" resultType="xmu.crms.entity.ClassInfo">
+        SELECT
+            id,
+            name,
+            course_id,
+            site,
+            class_time,
+            report_percentage,
+            presentation_percentage,
+            five_point_percentage,
+            four_point_percentage,
+            three_point_percentage
+        FROM
+            class_info
+        WHERE
+            id = #{classId}
+    </select>
+
+    <select id="listClassByCourseId" resultType="xmu.crms.entity.ClassInfo">
+        SELECT
+            id,
+            name,
+            course_id,
+            site,
+            class_time,
+            report_percentage,
+            presentation_percentage,
+            five_point_percentage,
+            four_point_percentage,
+            three_point_percentage
+        FROM
+            class_info
+        WHERE
+            course_id = #{courseId}
+    </select>
+
 </mapper>

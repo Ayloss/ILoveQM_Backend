@@ -1,20 +1,36 @@
 package xmu.crms.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xmu.crms.entity.ClassInfo;
+import xmu.crms.exception.CourseNotFoundException;
+import xmu.crms.exception.SeminarNotFoundException;
+import xmu.crms.mapper.ClassMapper;
+import xmu.crms.mapper.CourseMapper;
 
 import java.math.BigInteger;
 import java.util.List;
 
 /**
  *
- * Created by status200 on 2017/12/19.
+ *
+ * @author status200
+ * @date 2017/12/19
  */
 @Service
 public class ClassServiceImpl implements ClassService {
+
+    @Autowired
+    private ClassMapper classMapper;
+
+    @Autowired
+    private CourseMapper courseMapper;
+
     @Override
     public Boolean deleteClassSelectionByClassId(BigInteger classId) {
-        return null;
+        classMapper.deleteClassSelectionByClassId(classId);
+
+        return true;
     }
 
     @Override
@@ -23,18 +39,22 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public List<ClassInfo> listClassByCourseId(BigInteger courseId) {
-        return null;
+    public List<ClassInfo> listClassByCourseId(BigInteger courseId) throws CourseNotFoundException {
+
+        
+        return classMapper.listClassByCourseId(courseId);
     }
 
     @Override
     public ClassInfo getClassByClassId(BigInteger classId) {
-        return null;
+        return classMapper.getClassByClassId(classId);
     }
 
     @Override
-    public Boolean updateClassByClassId(BigInteger classId) {
-        return null;
+    public Boolean updateClassByClassId(BigInteger classId, ClassInfo newClass) throws ClassNotFoundException {
+        classMapper.updateClassByClassId(classId,newClass);
+
+        return true;
     }
 
     @Override
@@ -53,7 +73,7 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public ClassInfo getCallGroupStatusById(BigInteger seminarId) {
+    public ClassInfo getCallStatusById(BigInteger seminarId) throws SeminarNotFoundException {
         return null;
     }
 

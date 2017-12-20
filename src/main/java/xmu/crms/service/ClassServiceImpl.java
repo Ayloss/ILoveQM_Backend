@@ -41,7 +41,7 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public List<ClassInfo> listClassByCourseId(BigInteger courseId) throws CourseNotFoundException {
 
-        
+        // TODO:先查询Course是否存在
         return classMapper.listClassByCourseId(courseId);
     }
 
@@ -52,6 +52,8 @@ public class ClassServiceImpl implements ClassService {
 
     @Override
     public Boolean updateClassByClassId(BigInteger classId, ClassInfo newClass) throws ClassNotFoundException {
+        // TODO:先查询class是否存在
+
         classMapper.updateClassByClassId(classId,newClass);
 
         return true;

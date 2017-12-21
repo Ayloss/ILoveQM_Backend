@@ -28,17 +28,6 @@ public class SchoolServiceImpl implements SchoolService {
         schoolMapper.insertSchool(school);
         return school.getId();
     }
-
-    @Override
-    public List<String> listProvince() {
-        return null;
-    }
-
-    @Override
-    public List<String> listCity(String province) {
-        return null;
-    }
-
     @Override
     public School getSchoolBySchoolId(BigInteger schoolId) {
         return schoolMapper.getSchoolBySchoolId(schoolId);

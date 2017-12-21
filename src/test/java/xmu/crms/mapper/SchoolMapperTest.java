@@ -39,6 +39,7 @@ public class SchoolMapperTest {
         school.setProvince("江西");
         Boolean res = schoolMapper.insertSchool(school);
 
+        log.info(school.getId());
         log.info(res);
     }
 

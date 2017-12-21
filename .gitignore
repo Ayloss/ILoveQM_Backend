@@ -4,3 +4,5 @@
 
 # 使用maven生成的包
 target
+
+/src/main/resources/application.yaml

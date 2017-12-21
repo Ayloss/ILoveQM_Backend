@@ -20,7 +20,7 @@
         WHERE city = #{city};
     </select>
 
-    <insert id="insertSchool" parameterType="xmu.crms.entity.School">
+    <insert id="insertSchool" parameterType="xmu.crms.entity.School" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO school(name, province, city)
         VALUES (#{school.name},#{school.province},#{school.city});
     </insert>

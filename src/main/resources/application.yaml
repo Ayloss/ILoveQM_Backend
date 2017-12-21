@@ -1,8 +1,0 @@
-server:
-  port: 8080
-
-spring:
-  datasource:
-    url: jdbc:mysql://120.77.173.98:3306/xmu8102
-    username: xmu8102
-    password: aed11cd7

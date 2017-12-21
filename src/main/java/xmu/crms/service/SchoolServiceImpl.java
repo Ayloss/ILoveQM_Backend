@@ -1,5 +1,6 @@
 package xmu.crms.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xmu.crms.entity.School;
 import xmu.crms.mapper.SchoolMapper;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 @Service
 public class SchoolServiceImpl implements SchoolService {
+    @Autowired
     private SchoolMapper schoolMapper;
     @Override
     public List<School> listSchoolByCity(String city) {

@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import xmu.crms.entity.ClassInfo;
 import xmu.crms.entity.Course;
 
+import javax.sound.sampled.Line;
 import java.math.BigInteger;
 
 /**
@@ -19,7 +20,6 @@ import java.math.BigInteger;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ClassMapperTest {
-
 
     @Autowired
     private ClassMapper classMapper;
@@ -30,7 +30,7 @@ public class ClassMapperTest {
     @Ignore
     public void testDeleteClassSelectionByClassId() throws Exception {
 
-        classMapper.deleteClassSelectionByClassId(new BigInteger("3"));
+        classMapper.deleteCourseSelectionByClassId(new BigInteger("3"));
 
     }
 
@@ -42,6 +42,7 @@ public class ClassMapperTest {
         log.info(classInfo);
 
     }
+
 
     @Test
     @Ignore
@@ -69,8 +70,62 @@ public class ClassMapperTest {
     }
 
     @Test
+    @Ignore
     public void testListClassByCourseId() throws Exception {
 
         log.info(classMapper.listClassByCourseId(new BigInteger("2")));
+    }
+
+    @Test
+    @Ignore
+    public void testInsertCourseSelectionById() throws Exception {
+        log.info(classMapper.insertCourseSelectionById(new BigInteger("233"), new BigInteger("566")));
+    }
+
+    @Test
+    @Ignore
+    public void testDeleteCourseSelectionById() throws Exception {
+        log.info(classMapper.deleteCourseSelectionByStudentIdAndClassId(new BigInteger("90"),new BigInteger("1")));
+    }
+
+    @Test
+    @Ignore
+    public void testDeleteScoreRuleById() throws Exception {
+        log.info(classMapper.deleteScoreRuleById(new BigInteger("1")));
+    }
+
+    @Test
+    @Ignore
+    public void testGetScoreRule() throws Exception {
+        classMapper.getScoreRuleByClassId(new BigInteger("2"));
+    }
+
+    @Test
+    @Ignore
+    public void testUpdateScoreRuleById() throws Exception {
+        ClassInfo info = new ClassInfo();
+        info.setPresentationPercentage(30);
+        info.setReportPercentage(70);
+        info.setThreePointPercentage(10);
+        info.setFourPointPercentage(20);
+        info.setFivePointPercentage(70);
+
+        classMapper.updateScoreRuleById(new BigInteger("1"),info);
+    }
+
+    @Test
+    public void testDeleteClassById() throws Exception {
+
+        classMapper.deleteClassById(new BigInteger("3"));
+    }
+
+    @Test
+    public void testCountCourseByCourseId() throws Exception {
+        log.info(classMapper.countCourseByCourseId(new BigInteger("2")));
+    }
+
+    @Test
+    public void testCountClassByClassId() throws Exception {
+        log.info(classMapper.countClassByClassId(new BigInteger("1")));
     }
 }

@@ -6,7 +6,6 @@ import xmu.crms.entity.ClassInfo;
 import xmu.crms.exception.CourseNotFoundException;
 import xmu.crms.exception.SeminarNotFoundException;
 import xmu.crms.mapper.ClassMapper;
-import xmu.crms.mapper.CourseMapper;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -23,12 +22,10 @@ public class ClassServiceImpl implements ClassService {
     @Autowired
     private ClassMapper classMapper;
 
-    @Autowired
-    private CourseMapper courseMapper;
 
     @Override
     public Boolean deleteClassSelectionByClassId(BigInteger classId) {
-        classMapper.deleteClassSelectionByClassId(classId);
+        classMapper.deleteCourseSelectionByClassId(classId);
 
         return true;
     }
@@ -41,7 +38,11 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public List<ClassInfo> listClassByCourseId(BigInteger courseId) throws CourseNotFoundException {
 
-        // TODO:先查询Course是否存在
+        // 先查询Course是否存在
+        if(classMapper.countCourseByCourseId(courseId) <= 0) {
+            throw new CourseNotFoundException(courseId);
+        }
+
         return classMapper.listClassByCourseId(courseId);
     }
 
@@ -61,17 +62,25 @@ public class ClassServiceImpl implements ClassService {
 
     @Override
     public Boolean deleteClassByClassId(BigInteger classId) {
-        return null;
+
+        classMapper.deleteClassById(classId);
+
+
+        return true;
     }
 
     @Override
     public String insertCourseSelectionById(BigInteger userId, BigInteger classId) {
-        return null;
+
+        classMapper.insertCourseSelectionById(userId,classId);
+
+        // TODO:返回选课的url
+        return "";
     }
 
     @Override
     public Boolean deleteCourseSelectionById(BigInteger userId, BigInteger classId) {
-        return null;
+        return classMapper.deleteCourseSelectionByStudentIdAndClassId(userId,classId) >= 1;
     }
 
     @Override
@@ -79,33 +88,54 @@ public class ClassServiceImpl implements ClassService {
         return null;
     }
 
+    // TODO:该service有问题，标准组修改中
     @Override
     public BigInteger insertClassById(BigInteger userId, BigInteger courseId) {
         return null;
     }
 
     @Override
-    public Boolean deleteClassByCourseId(BigInteger courseId) {
-        return null;
+    public Boolean deleteClassByCourseId(BigInteger courseId) throws CourseNotFoundException {
+
+        if(classMapper.countCourseByCourseId(courseId) <= 0) {
+            throw new CourseNotFoundException(courseId);
+        }
+        // 获取该课程下的所有班级
+        List<ClassInfo> classInfoList = classMapper.listClassByCourseId(courseId);
+
+        classInfoList.forEach(e->{
+            // 删除所有班级的选课记录
+            classMapper.deleteCourseSelectionByClassId(e.getId());
+            // 删除该班级
+            classMapper.deleteClassById(e.getId());
+        });
+
+
+        return true;
+    }
+
+
+    @Override
+    public Boolean deleteScoreRuleById(BigInteger classId) throws ClassNotFoundException{
+
+        return classMapper.deleteScoreRuleById(classId) >= 1;
     }
 
     @Override
-    public Boolean deleteScoreRuleById(BigInteger classId) {
-        return null;
-    }
-
-    @Override
-    public ClassInfo getScoreRule(BigInteger classId) {
-        return null;
+    public ClassInfo getScoreRule(BigInteger classId) throws ClassNotFoundException {
+        return classMapper.getScoreRuleByClassId(classId);
     }
 
     @Override
     public BigInteger insertScoreRule(BigInteger classId, ClassInfo proportions) {
-        return null;
+
+        classMapper.updateScoreRuleById(classId,proportions);
+
+        return classId;
     }
 
     @Override
     public Boolean updateScoreRule(BigInteger classId, ClassInfo proportions) {
-        return null;
+        return classMapper.updateScoreRuleById(classId,proportions) >=1;
     }
 }

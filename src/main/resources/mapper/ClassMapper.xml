@@ -6,6 +6,20 @@
 <!-- namespace用来指定该xml文件对应的interface  -->
 <!-- 默认idea对于该xml文件是几乎没有任何提示的，需要装一个叫 mybatis free plugins 的插件 -->
 <mapper namespace="xmu.crms.mapper.ClassMapper">
+    <insert id="insertCourseSelectionById">
+        INSERT INTO course_selection(class_id, student_id) VALUES(#{classId},#{userId})
+    </insert>
+    <insert id="updateScoreRuleById" useGeneratedKeys="true" keyProperty="id">
+        UPDATE class_info
+        SET
+            report_percentage = #{proportions.reportPercentage} ,
+            presentation_percentage = #{proportions.presentationPercentage},
+            five_point_percentage = #{proportions.fivePointPercentage} ,
+            four_point_percentage = #{proportions.fourPointPercentage} ,
+            three_point_percentage = #{proportions.threePointPercentage}
+        WHERE
+            id = #{classId}
+    </insert>
 
     <update id="updateClassByClassId">
         UPDATE class_info
@@ -42,8 +56,28 @@
           id = #{classId}
     </update>
 
-    <delete id="deleteClassSelectionByClassId">
+    <delete id="deleteCourseSelectionByClassId">
         DELETE FROM course_selection WHERE class_id = #{classId};
+    </delete>
+
+    <delete id="deleteCourseSelectionByStudentIdAndClassId">
+        DELETE FROM course_selection WHERE class_id = #{classId} AND student_id = #{userId}
+    </delete>
+
+    <delete id="deleteScoreRuleById">
+        UPDATE class_info
+        SET
+            report_percentage = NULL ,
+            presentation_percentage = NULL,
+            five_point_percentage = NULL ,
+            four_point_percentage = NULL ,
+            three_point_percentage = NULL
+        WHERE
+            id = #{classId}
+    </delete>
+
+    <delete id="deleteClassById">
+        DELETE FROM class_info WHERE id = #{classId}
     </delete>
 
     <select id="getClassByClassId" resultType="xmu.crms.entity.ClassInfo">
@@ -80,6 +114,45 @@
             class_info
         WHERE
             course_id = #{courseId}
+    </select>
+
+    <select id="getScoreRuleByClassId" resultType="xmu.crms.entity.ClassInfo">
+        SELECT
+            presentation_percentage,
+            five_point_percentage,
+            four_point_percentage,
+            three_point_percentage
+        FROM
+            class_info
+        WHERE
+            id = #{classId}
+    </select>
+
+    <select id="countCourseByCourseId" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM course WHERE id = #{courseId}
+    </select>
+
+    <select id="countClassByClassId" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM class_info WHERE id = #{classId}
+    </select>
+
+    <select id="listCourseByCourseName" resultType="xmu.crms.entity.Course">
+        SELECT
+            id,
+            name,
+            start_date,
+            end_date,
+            teacher_id,
+            description,
+            report_percentage,
+            presentation_percentage,
+            five_point_percentage,
+            four_point_percentage,
+            three_point_percentage
+        FROM
+            course
+        WHERE
+            name = #{courseName}
     </select>
 
 </mapper>

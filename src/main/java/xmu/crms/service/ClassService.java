@@ -13,6 +13,7 @@ import xmu.crms.exception.*;
  *
  */
 public interface ClassService {
+
 	/**
 	 * 按classId删除CourseSelection表的一条记录 .
 	 *

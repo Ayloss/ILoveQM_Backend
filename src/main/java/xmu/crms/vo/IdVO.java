@@ -16,5 +16,4 @@ import java.math.BigInteger;
 @AllArgsConstructor
 public class IdVO {
     private BigInteger id;
-
 }

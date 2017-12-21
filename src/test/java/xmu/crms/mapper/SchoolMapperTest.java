@@ -13,7 +13,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 /**
- * Created by status200 on 2017/12/19.
+ * Created by liuxin on 2017/12/19.
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -31,7 +31,32 @@ public class SchoolMapperTest {
         log.info(list);
         log.info(list.size());
     }
-    
+    @Test
+    public void testInsertSchool() throws  Exception{
+        School school=new School();
+        school.setName("南昌大学");
+        school.setCity("南昌");
+        school.setProvince("江西");
+        Boolean res = schoolMapper.insertSchool(school);
+
+        log.info(school.getId());
+        log.info(res);
+    }
+
+    /*@Test
+    public void testListProvince() throws Exception{
+        List<String> list=schoolMapper.listProvince();
+
+        log.info(list);
+    }
+
+    @Test
+    public void testListCity() throws Exception{
+        List<String> list=schoolMapper.listCity("江西");
+
+        log.info(list);
+    }*/
+
 
     @Test
     public void testGetSchoolBySchoolId() throws Exception {

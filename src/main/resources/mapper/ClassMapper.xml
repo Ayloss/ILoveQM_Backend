@@ -6,6 +6,71 @@
 <!-- namespace用来指定该xml文件对应的interface  -->
 <!-- 默认idea对于该xml文件是几乎没有任何提示的，需要装一个叫 mybatis free plugins 的插件 -->
 <mapper namespace="xmu.crms.mapper.ClassMapper">
+    <resultMap autoMapping="true" id="ClassInfo" type="xmu.crms.entity.ClassInfo">
+        <association property="course" column="course_id" select="getCourseById" />
+    </resultMap>
+
+    <resultMap id="Course" type="xmu.crms.entity.Course" autoMapping="true">
+        <association property="teacher" column="teacher_id" select="getTeacherByTeacherId"/>
+    </resultMap>
+
+    <resultMap id="User" type="xmu.crms.entity.User" autoMapping="true">
+        <association property="school" column="school_id" select="getSchoolBySchoolId"/>
+    </resultMap>
+
+    <select id="getSchoolBySchoolId" resultType="xmu.crms.entity.School">
+        SELECT
+            id,
+            name,
+            province,
+            city
+        FROM
+            school
+        WHERE
+            id = #{schoolId}
+    </select>
+
+    <select id="getTeacherByTeacherId" resultType="xmu.crms.entity.User">
+        SELECT
+            id,
+            phone,
+            wechat_id,
+            openid,
+            avatar,
+            password,
+            name,
+            school_id,
+            gender,
+            type,
+            number,
+            education,
+            title,
+            email
+        FROM
+            user_info
+        WHERE
+            id = #{teacherId}
+    </select>
+
+    <select id="getCourseById" resultType="xmu.crms.entity.Course">
+        SELECT
+            id,
+            name,
+            start_date,
+            end_date,
+            teacher_id,
+            description,
+            report_percentage,
+            presentation_percentage,
+            five_point_percentage,
+            four_point_percentage,
+            three_point_percentage
+        FROM
+            course
+        WHERE
+            id = #{courseId}
+    </select>
+
     <insert id="insertCourseSelectionById">
         INSERT INTO course_selection(class_id, student_id) VALUES(#{classId},#{userId})
     </insert>
@@ -80,7 +145,7 @@
         DELETE FROM class_info WHERE id = #{classId}
     </delete>
 
-    <select id="getClassByClassId" resultType="xmu.crms.entity.ClassInfo">
+    <select id="getClassByClassId" resultMap="ClassInfo">
         SELECT
             id,
             name,
@@ -98,7 +163,7 @@
             id = #{classId}
     </select>
 
-    <select id="listClassByCourseId" resultType="xmu.crms.entity.ClassInfo">
+    <select id="listClassByCourseId" resultMap="ClassInfo">
         SELECT
             id,
             name,

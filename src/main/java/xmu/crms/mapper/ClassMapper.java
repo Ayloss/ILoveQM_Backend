@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import xmu.crms.entity.ClassInfo;
 import xmu.crms.entity.Course;
+import xmu.crms.entity.School;
+import xmu.crms.entity.User;
 import xmu.crms.exception.CourseNotFoundException;
 
 import java.math.BigInteger;
@@ -149,8 +151,33 @@ public interface ClassMapper {
 
     /**
      * 根据课程名称取得所有课程
+     *
      * @param courseName
      * @return
      */
-    List<Course> listCourseByCourseName(@Param("courseName") String courseName)
+    List<Course> listCourseByCourseName(@Param("courseName") String courseName);
+
+    /**
+     * 根据课程id查询课程
+     *
+     * @param courseId
+     * @return
+     */
+    Course getCourseById(@Param("courseId") BigInteger courseId);
+
+    /**
+     * 根据教师id查询教师
+     *
+     * @param teacherId
+     * @return
+     */
+    User getTeacherByTeacherId(@Param("teacherId") BigInteger teacherId);
+
+    /**
+     * 根据学校id查询学校
+     *
+     * @param schoolId
+     * @return
+     */
+    School getSchoolBySchoolId(@Param("schoolId") BigInteger schoolId);
 }

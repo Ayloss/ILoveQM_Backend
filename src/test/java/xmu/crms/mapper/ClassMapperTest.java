@@ -35,7 +35,7 @@ public class ClassMapperTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testGetClassByClassId() throws Exception {
         ClassInfo classInfo = classMapper.getClassByClassId(new BigInteger("2"));
 
@@ -70,10 +70,9 @@ public class ClassMapperTest {
     }
 
     @Test
-    @Ignore
     public void testListClassByCourseId() throws Exception {
 
-        log.info(classMapper.listClassByCourseId(new BigInteger("2")));
+        log.info(classMapper.listClassByCourseId(new BigInteger("1")));
     }
 
     @Test
